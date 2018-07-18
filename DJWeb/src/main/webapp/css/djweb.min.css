@@ -1,0 +1,23 @@
+/*body{
+    background-color: #eaeff2;
+}*/
+
+.webui-tab{
+    width: 90%;
+    margin: 0px auto;
+    padding: 40px 0;
+    padding-top: 70px;
+}
+
+.product-creat{
+    width: 730px;
+    margin: 0px auto;
+}
+
+.product-creat .argument-details {
+    width: 251px;
+    height: 80px;
+    display: block;
+    border-style: solid;
+    border-color:#eaeaea #eaeaea;
+}

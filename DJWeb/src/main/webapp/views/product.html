@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>产品信息</title>
+    <link rel="stylesheet" href="../css/djweb.min.css">
+    <link rel="stylesheet" href="../lib/layui/css/layui.css">
+    <script src="../lib/layui/layui.js"></script>
+    <script>
+        layui.config({
+            base:'../js/'
+        }).use('product');
+    </script>
+</head>
+<body>
+<div class="webui-tab">
+    <div class="layui-tab layui-tab-card">
+        <ul class="layui-tab-title">
+            <li class="layui-this"><a>创建产品</a></li>
+        </ul>
+        <div class="product-creat">
+        <div class="layui-tab-content" style="margin: auto;">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form" action="">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">产品名称</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="title" required  lay-verify="required" placeholder="最多输入16个字符" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">产品行业</label>
+                        <div class="layui-input-block">
+                            <select name="city" lay-verify="required">
+                                <option value="0">智能家居</option>
+                                <option value="1">车载设备</option>
+                                <option value="2">可穿戴设备</option>
+                                <option value="3">医疗保健</option>
+                                <option value="4">智能玩具</option>
+                                <option value="5">新能源</option>
+                                <option value="6">运动监控</option>
+                                <option value="7">智能教育</option>
+                                <option value="8">环境监控</option>
+                                <option value="9">办公设备</option>
+                                <option value="10">其它</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">产品类别</label>
+                        <div class="layui-input-inline">
+                            <select name="quiz1">
+                                <option value="">请选择</option>
+                                <option value="0">家用电器</option>
+                                <option value="1">办公设备</option>
+                                <option value="2">穿戴钟表</option>
+                                <option value="3">母婴</option>
+                                <option value="4">汽车用品</option>
+                                <option value="5">智能玩具</option>
+                                <option value="6">数码设备</option>
+                                <option value="7">运动设备</option>
+                                <option value="8">其它</option>
+                            </select>
+                        </div>
+                        <div class="layui-input-inline">
+                            <select name="quiz2">
+                                <option value="">请选择</option>
+                                <option value="杭州">杭州</option>
+                                <option value="宁波">宁波</option>
+                                <option value="温州">温州</option>
+                                <option value="温州">台州</option>
+                                <option value="温州">绍兴</option>
+                            </select>
+                        </div>
+                        <div class="layui-input-inline">
+                            <select name="quiz3">
+                                <option value="">请选择</option>
+                                <option value="西湖区">西湖区</option>
+                                <option value="余杭区">余杭区</option>
+                                <option value="拱墅区">临安市</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">产品进度</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="sex" value="有创意想法" title="有创意想法" checked>
+                            <input type="radio" name="sex" value="有产品原型" title="有产品原型">
+                            <input type="radio" name="sex" value="有工程样机" title="有工程样机">
+                            <input type="radio" name="sex" value="已量产" title="已量产">
+                        </div>
+                    </div>
+                    <div class="layui-form-item layui-form-text">
+                        <label class="layui-form-label">产品简介</label>
+                        <div class="layui-input-block">
+                            <textarea name="desc" placeholder="请输入内容" class="layui-textarea"></textarea>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">操作系统</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="OS" value="Linux" title="Linux" checked>
+                            <input type="radio" name="OS" value="Android" title="Android">
+                            <input type="radio" name="OS" value="VxWorks" title="VxWorks">
+                            <input type="radio" name="OS" value="uC/OS" title="uC/OS">
+                            <input type="radio" name="OS" value="无" title="无">
+                            <input type="radio" name="OS" value="其它" title="其它">
+                        </div>
+                    </div>
+                    <div class="layui-form-item" pane="">
+                        <label class="layui-form-label">网络运营商</label>
+                        <div class="layui-input-block">
+                            <input name="like1[mobile]" title="移动" type="checkbox" checked="" lay-skin="primary">
+                            <input name="like1[telecom]" title="电信" type="checkbox" lay-skin="primary">
+                            <input name="like1[unicom]" title="联通" type="checkbox" lay-skin="primary">
+                            <input name="like1[other]" title="其它" type="checkbox" lay-skin="primary">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">接入方式</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="DAM" value="Linux" title="公开协议" checked>
+                            <input type="radio" name="DAM" value="Android" title="私有协议(RGMP)">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">联网方式</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="network" value="wifi" title="wifi" checked>
+                            <input type="radio" name="network" value="移动蜂窝网络" title="移动蜂窝网络">
+                            <input type="radio" name="network" value="NB-IOT" title="NB-IOT">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">接入协议</label>
+                        <div class="layui-input-inline">
+                            <select name="DAP" lay-filter="DAP" lay-verify="required">
+                                <option value="0">HTTP</option>
+                                <option value="1">EDP</option>
+                                <option value="2">MQTT</option>
+                                <option value="3">Modbus</option>
+                                <option value="4">JT/T808</option>
+                                <option value="5">TCP透传</option>
+                                <option value="6">RTMP</option>
+                            </select>
+                        </div>
+                        <div class="layui-input-inline">
+                            <div id="argument-details" class="argument-details">
+                                <b>HTTP 协议基本功能介绍：</b>
+                                <p>1.上报传感器数据点</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn" lay-submit lay-filter="formDemo">确认</button>
+                            <button class="layui-btn layui-btn-primary" lay-submit lay-filter="cancel">取消</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
