@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>开发中心</title>
+    <link rel="stylesheet" href="../css/djweb.min.css">
     <link rel="stylesheet" href="../lib/layui/css/layui.css">
     <script src="../lib/layui/layui.js"></script>
     <script>
@@ -12,15 +13,51 @@
     </script>
 </head>
 <body>
-    <div class="layui-tab layui-tab-card">
-        <ul class="layui-tab-title">
-            <li class="layui-this"><span>0</span>个公开协议产品</li>
-            <li><span>0</span>个私有协议产品</li>
-            <a href="product.html" class="layui-btn layui-btn-radius layui-btn-sm">创建产品</a>
-        </ul>
-        <div class="layui-tab-content" style="">
-            <div class="layui-tab-item layui-show">默认宽度是相对于父元素100%适应的，你也可以固定宽度。</div>
-            <div class="layui-tab-item">2</div>
+    <div class="layui-layout layui-layout-admin webhead">
+        <div class="layui-header">
+            <a href="index.html"><div class="layui-logo">DJ 云平台</div></a>
+            <ul class="layui-nav layui-layout-left">
+                <li class="layui-nav-item"><a href="../index.html">首页</a></li>
+            </ul>
+            <ul id="login_in" class="layui-nav layui-layout-right" style="display: none">
+                <li class="layui-nav-item"><a href="views/develop.html">开发者中心</a></li>
+                <li class="layui-nav-item"><a href="">消息<span class="layui-badge">9</span></a></li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">
+                        <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+                        key_小江
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="">基本资料</a></dd>
+                        <dd><a href="">安全设置</a></dd>
+                        <dd><a href="">退出账号</a></dd>
+                    </dl>
+                </li>
+            </ul>
+            <ul id="login_out" class="layui-nav layui-layout-right">
+                <li class="layui-nav-item">
+                    <a href="views/login.html">登录</a>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="views/register.html">注册</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="webui-tab">
+        <div class="layui-tab layui-tab-card">
+            <ul class="layui-tab-title">
+                <li class="layui-this"><span>0</span>个公开协议产品</li>
+                <li><span>0</span>个私有协议产品</li>
+                <div class="creat-btn">
+                    <a href="product.html" class="layui-btn layui-btn-radius layui-btn-sm">创建产品</a>
+                </div>
+            </ul>
+            <div class="layui-tab-content product-body" style="">
+                <div id="public-dev" class="layui-tab-item layui-show">
+                </div>
+                <div id="private-dev" class="layui-tab-item"></div>
+            </div>
         </div>
     </div>
 </body>
