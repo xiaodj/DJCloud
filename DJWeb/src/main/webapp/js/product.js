@@ -1,10 +1,10 @@
 /**
  * Created by xiaodj on 2018/7/18.
  */
-layui.define(['layer','form'],function (exports) {
+layui.define(['layer','form','element'],function (exports) {
     var layer = layui.layer;
     var form = layui.form;
-    //var element = layui.element;
+    var element = layui.element;
     form.on('select(DAP)', function (data) {
         if (data.value == 0){
             var eid = document.getElementById("argument-details");

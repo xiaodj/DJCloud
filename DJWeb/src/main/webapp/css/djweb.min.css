@@ -39,7 +39,7 @@ body{
     left: 50%;
     width: 380px;
     margin-left: -190px;
-    margin-top: -200px;
+    margin-top: -150px;
     border-radius: 3px;
     background-color: #ffffff;
     box-shadow: 0px 0px 10px rgba(153,153,153,0.8);
@@ -80,11 +80,62 @@ body{
 }
 
 .product-list .product-content{
-    height: 286px;
-    background-color: #f6f7fc;
+    height: 300px;
+    background-color: #eaeff2;
     border-radius: 6px;
-    margin: 0 10px 25px;
-    padding: 15px;
+    margin: 10px 10px;
+}
+
+.product-list .product-name{
+    margin-bottom: 20px;
+}
+
+.product-list h3{
+    color: #20c0ef;
+    font-size: 20px;
+    font-weight: 400px;
+    max-width: 170px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inline-block;
+}
+
+.product-list span{
+    color: #33deb4;
+    font-size: 14px;
+    margin-left: 15px;
+    font-weight: 400px;
+    max-width: 80px;
+    padding: 0px 6px;
+    border-radius: 10px;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inline-block;
+}
+
+.product-list .icon{
+    float: right;
+    font-size: 25px;
+    padding: 0px 6px;
+}
+
+.product-list label{
+    color: #999999;
+    font-size: 14px;
+}
+
+.product-list .dev-name{
+    margin-left: 0px;
+    position: relative;
+    display: inline-block;
+}
+
+.product-list a{
+    font-size: 30px;
+    margin-left: 10px;
 }
 
 .product-creat{
