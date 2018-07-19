@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/DJCloud.iml" filepath="$PROJECT_DIR$/.idea/DJCloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DJWeb/DJWeb.iml" filepath="$PROJECT_DIR$/DJWeb/DJWeb.iml" />
     </modules>
   </component>
 </project>
