@@ -4,6 +4,7 @@ import com.djweb.entity.request.loginEntity;
 import com.djweb.entity.request.registerEntity;
 import com.djweb.entity.response.msgEntity;
 import com.djweb.entity.response.userDataEntity;
+import com.djweb.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,9 +24,10 @@ public class userAction {
 
     @Autowired
     private msgEntity msg;
-
     @Autowired
     private userDataEntity userData;
+    @Autowired
+    private IUserService iUser;
 
     /**
      * 获取用户信息
@@ -72,18 +74,17 @@ public class userAction {
      * @author dengjiang
      */
     @RequestMapping(value = "/register.do", method = RequestMethod.POST)
-    public @ResponseBody msgEntity register(@RequestBody registerEntity regParam){
-        String name = regParam.getUsername();
-        String pwd = regParam.getPassword();
+    public @ResponseBody msgEntity register(@RequestBody Map<String, String> map){
 
-        if (name.equals(null) || pwd.equals(null) || name.isEmpty() || pwd.isEmpty()){
-            msg.setCode("1");
-            msg.setMsg("用户名或密码无效");
-        }else {
+        boolean bflag = false;
+        bflag = iUser.register(map);
+        if (bflag){
             msg.setCode("0");
             msg.setMsg("注册成功");
+        }else{
+            msg.setCode("1");
+            msg.setMsg("用户名或密码无效");
         }
-
         return msg;
     }
 }
