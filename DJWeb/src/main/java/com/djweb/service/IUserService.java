@@ -9,6 +9,10 @@ import java.util.Map;
  */
 public interface IUserService {
 
+    //登陆
+    public boolean login(Map<String, String> var);
     //注册
-    public boolean register(Map<String, String> map);
+    public boolean register(Map<String, String> var);
+    //获取用户信息
+    public UserEntity getUserInfo(Map<String, String> var);
 }

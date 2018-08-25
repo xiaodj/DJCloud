@@ -1,4 +1,4 @@
-package com.djweb.entity.response;
+package com.djweb.entity;
 
 import org.springframework.stereotype.Component;
 

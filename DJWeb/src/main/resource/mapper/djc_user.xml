@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.djweb.dao.IUserDao">
-    <insert id="insert">
-        INSERT INTO djc_user VALUES(0, "xiaodj", "dddd");
+    <insert id="insert" parameterType="com.djweb.entity.UserEntity">
+        INSERT INTO djc_user VALUES(#{UID}, #{USERNAME}, #{PASSWORD});
     </insert>
+    <delete id="delete">
+        DELETE FROM djc_user WHERE USERNAME = #{USERNAME};
+    </delete>
+    <update id="update">
+        UPDATE djc_user SET PASSWORD = #{PASSWORD} WHERE USERNAME = #{USERNAME};
+    </update>
+    <select id="select" resultType="com.djweb.entity.UserEntity">
+        SELECT * FROM djc_user WHERE USERNAME = #{USERNAME};
+    </select>
 </mapper>

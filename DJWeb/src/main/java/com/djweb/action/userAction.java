@@ -1,9 +1,7 @@
 package com.djweb.action;
 
-import com.djweb.entity.request.loginEntity;
-import com.djweb.entity.request.registerEntity;
-import com.djweb.entity.response.msgEntity;
-import com.djweb.entity.response.userDataEntity;
+import com.djweb.entity.msgEntity;
+import com.djweb.entity.userDataEntity;
 import com.djweb.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -53,13 +51,14 @@ public class userAction {
      * @author dengjiang
      */
     @RequestMapping(value = "/login.do", method = RequestMethod.POST)
-    public @ResponseBody msgEntity login(@RequestBody loginEntity loginParam, HttpSession session){
-        String name = loginParam.getUsername();
-        String pwd = loginParam.getPassword();
+    public @ResponseBody msgEntity login(@RequestBody Map<String, String> param, HttpSession session){
 
-        if (name.equals("xiaodj") && pwd.equals("xiaodj2014")){
+        boolean bflag = false;
+        bflag = iUser.login(param);
+
+        if (bflag){
             session.setMaxInactiveInterval(2*60);
-            session.setAttribute("username", name);
+            session.setAttribute("login","succ");
             msg.setCode("0");
             msg.setMsg("登录成功");
         } else{
@@ -84,6 +83,23 @@ public class userAction {
         }else{
             msg.setCode("1");
             msg.setMsg("用户名或密码无效");
+        }
+        return msg;
+    }
+
+    /**
+     * 用户是否登陆
+     * @author dengjiang
+     */
+
+    public @ResponseBody msgEntity isLogin(HttpSession session){
+        String strLogin = (String)session.getAttribute("login");
+        if (strLogin == null || strLogin.isEmpty()) {
+            msg.setCode("1");
+            msg.setMsg("未登陆");
+        }else {
+            msg.setCode("0");
+            msg.setMsg("已登陆");
         }
         return msg;
     }
