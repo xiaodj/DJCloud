@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>开发中心</title>
+    <link rel="stylesheet" href="../css/djweb.min.css">
+    <link rel="stylesheet" href="../lib/layui/css/layui.css">
+    <script src="../lib/layui/layui.js"></script>
+    <script>
+        layui.config({
+            base:'../js/'
+        }).use('develop');
+    </script>
+</head>
+<body>
+    <div class="layui-layout layui-layout-admin webhead">
+        <div class="layui-header">
+            <a href="index.html"><div class="layui-logo">DJ 云平台</div></a>
+            <ul class="layui-nav layui-layout-left">
+                <li class="layui-nav-item"><a href="../index.html">首页</a></li>
+            </ul>
+            <ul id="login_in" class="layui-nav layui-layout-right">
+                <li class="layui-nav-item"><a href="views/develop.html">开发者中心</a></li>
+                <li class="layui-nav-item"><a href="">消息<span class="layui-badge">9</span></a></li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">
+                        <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+                        key_小江
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="">基本资料</a></dd>
+                        <dd><a href="">安全设置</a></dd>
+                        <dd><a href="">退出账号</a></dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="webui-tab">
+        <div class="layui-tab layui-tab-card" style="background-color: #ffffff">
+            <ul class="layui-tab-title">
+                <div class="creat-btn">
+                    <a href="product.html" class="layui-btn layui-btn-radius layui-btn-sm">创建产品</a>
+                </div>
+                <li class="layui-this"><span>0</span>个公开协议产品</li>
+                <li><span>0</span>个私有协议产品</li>
+            </ul>
+            <div class="layui-tab-content product-body" style="">
+                <div id="public-dev" class="layui-tab-item layui-show">
+                    <div class="product-list">
+                        <div class="layui-card product-content">
+                            <div class="layui-card-header">
+                                <a class="dev-name" href="manage.html"><h3>跳跳熊</h3></a>
+                                <span>智能家具</span>
+                                <a class="dev-name icon layui-icon layui-icon-delete" href=""></a>
+                                <a class="icon layui-icon layui-icon-edit" href=""></a>
+                            </div>
+                            <div class="layui-card-header">
+                                <label>设备接入方式: HTTP</label>
+                            </div>
+                            <div class="layui-card-header">
+                                <label>创建时间：2018-07-19 02:38:38</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="private-dev" class="layui-tab-item">
+                    <div class="product-list">
+                        <div class="layui-card product-content">
+                            <div class="layui-card-header">
+                                <a class="dev-name" href="manage.html"><h3>跳跳熊</h3></a>
+                                <span>智能家具</span>
+                                <a class="dev-name icon layui-icon layui-icon-delete" href=""></a>
+                                <a class="icon layui-icon layui-icon-edit" href=""></a>
+                            </div>
+                            <div class="layui-card-header">
+                                <label>设备接入方式: HTTP</label>
+                            </div>
+                            <div class="layui-card-header">
+                                <label>创建时间：2018-07-19 02:38:38</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

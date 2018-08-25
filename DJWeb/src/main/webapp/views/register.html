@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <link rel="stylesheet" href="../css/djweb.min.css">
+    <link rel="stylesheet" href="../lib/layui/css/layui.css">
+    <script src="../lib/layui/layui.js"></script>
+    <script>
+        layui.config({
+            base:'../js/'
+        }).use('register');
+    </script>
+</head>
+<body>
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <a href="../index.html"><div class="layui-logo">DJ 云平台</div></a>
+    </div>
+</div>
+<div class="reg-nav">
+    <form class="layui-form" action="">
+        <div class="layui-form-item gcenter gmargin-top3">
+            <div class="layui-inline"><h3>欢迎来到DJ Cloud开放平台</h3></div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">用户名</label>
+                <div class="layui-input-inline">
+                    <input name="phone" class="layui-input" type="tel" autocomplete="off" lay-verify="required|phone">
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">密码</label>
+                <div class="layui-input-inline">
+                    <input name="phone" class="layui-input" type="password" autocomplete="off" lay-verify="required|phone">
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">确认密码</label>
+                <div class="layui-input-inline">
+                    <input name="phone" class="layui-input" type="password" autocomplete="off" lay-verify="required|phone">
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label"></label>
+                <div class="layui-input-inline">
+                    <button class="layui-btn layui-btn-fluid" lay-filter="loginbtn" lay-submit>立即注册</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>
