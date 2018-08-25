@@ -6,4 +6,6 @@
 
     <!-- 主要用于扫描一些包 -->
     <context:component-scan base-package="com.djweb.entity"/>
+    <!-- 扫描业务层组件 -->
+    <context:component-scan base-package="com.djweb.service"/>
 </beans>
