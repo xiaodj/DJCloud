@@ -1,4 +1,4 @@
-package com.djweb.entity;
+package com.djweb.dto;
 
 import org.springframework.stereotype.Component;
 
@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
  * Created by xiaodj on 2018/7/17.
  */
 @Component
-public class userDataEntity{
+public class UserInfoDTO{
     private String code;
     private String nickname;    //昵称
 

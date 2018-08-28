@@ -1,7 +1,7 @@
 package com.djweb.action;
 
-import com.djweb.entity.msgEntity;
-import com.djweb.entity.userDataEntity;
+import com.djweb.dto.MessageDTO;
+import com.djweb.dto.UserInfoDTO;
 import com.djweb.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,9 +21,9 @@ import java.util.Map;
 public class userAction {
 
     @Autowired
-    private msgEntity msg;
+    private MessageDTO message;
     @Autowired
-    private userDataEntity userData;
+    private UserInfoDTO userinfo;
     @Autowired
     private IUserService iUser;
 
@@ -32,18 +32,19 @@ public class userAction {
      * @author dengjiang
      *
      */
-    @RequestMapping(value = "/userdata.do", method = RequestMethod.GET)
-    public @ResponseBody userDataEntity getUserData(HttpSession session){
-        String name = (String) session.getAttribute("username");
+    @RequestMapping(value = "/userinfo.do", method = RequestMethod.GET)
+    public @ResponseBody UserInfoDTO getUserData(HttpSession session){
+        String name = (String) session.getAttribute("login");
         if (name == null || name.isEmpty()){
-            userData.setCode("1");
-            userData.setNickname("");
-        }else {
-            userData.setCode("0");
-            userData.setNickname("key_小江");
+            userinfo.setCode("1");
+            userinfo.setNickname("");
+        }else if (name.equals("succ")){
+            userinfo.setCode("0");
+
+            userinfo.setNickname("云平台");
         }
 
-        return userData;
+        return userinfo;
     }
 
     /**
@@ -51,7 +52,7 @@ public class userAction {
      * @author dengjiang
      */
     @RequestMapping(value = "/login.do", method = RequestMethod.POST)
-    public @ResponseBody msgEntity login(@RequestBody Map<String, String> param, HttpSession session){
+    public @ResponseBody MessageDTO login(@RequestBody Map<String, String> param, HttpSession session){
 
         boolean bflag = false;
         bflag = iUser.login(param);
@@ -59,13 +60,13 @@ public class userAction {
         if (bflag){
             session.setMaxInactiveInterval(2*60);
             session.setAttribute("login","succ");
-            msg.setCode("0");
-            msg.setMsg("登录成功");
+            message.setCode("0");
+            message.setMsg("登录成功");
         } else{
-            msg.setCode("1");
-            msg.setMsg("用户名或密码不正确");
+            message.setCode("1");
+            message.setMsg("用户名或密码不正确");
         }
-        return msg;
+        return message;
     }
 
     /**
@@ -73,18 +74,18 @@ public class userAction {
      * @author dengjiang
      */
     @RequestMapping(value = "/register.do", method = RequestMethod.POST)
-    public @ResponseBody msgEntity register(@RequestBody Map<String, String> map){
+    public @ResponseBody MessageDTO register(@RequestBody Map<String, String> map){
 
         boolean bflag = false;
         bflag = iUser.register(map);
         if (bflag){
-            msg.setCode("0");
-            msg.setMsg("注册成功");
+            message.setCode("0");
+            message.setMsg("注册成功");
         }else{
-            msg.setCode("1");
-            msg.setMsg("用户名或密码无效");
+            message.setCode("1");
+            message.setMsg("用户名或密码无效");
         }
-        return msg;
+        return message;
     }
 
     /**
@@ -92,15 +93,15 @@ public class userAction {
      * @author dengjiang
      */
 
-    public @ResponseBody msgEntity isLogin(HttpSession session){
+    public @ResponseBody MessageDTO isLogin(HttpSession session){
         String strLogin = (String)session.getAttribute("login");
         if (strLogin == null || strLogin.isEmpty()) {
-            msg.setCode("1");
-            msg.setMsg("未登陆");
+            message.setCode("1");
+            message.setMsg("未登陆");
         }else {
-            msg.setCode("0");
-            msg.setMsg("已登陆");
+            message.setCode("0");
+            message.setMsg("已登陆");
         }
-        return msg;
+        return message;
     }
 }
