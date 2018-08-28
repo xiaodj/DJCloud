@@ -6,7 +6,7 @@ layui.define(['layer', 'element'],function (exports) {
     var $ = layui.$;
 
     $.ajax({
-        url:"http://localhost:8880/userdata.do",
+        url:"http://localhost:8080/userinfo.do",
         type:"get",
         datatype:"json",
         success:function (message) {
