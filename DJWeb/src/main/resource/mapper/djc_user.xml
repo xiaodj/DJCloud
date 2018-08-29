@@ -2,15 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.djweb.dao.IUserDao">
     <insert id="insert" parameterType="com.djweb.entity.UserEntity">
-        INSERT INTO djc_user VALUES(#{UID}, #{USERNAME}, #{PASSWORD});
+        INSERT INTO djc_user(MOBILE, PASSWORD, USERNAME, SEX, BIRTHDAY, ORGANIZATION, INTRODUCE,
+        LOCATION, ADDRESS, EMAIL, QQ)
+        VALUES(#{MOBILE}, #{PASSWORD}, #{USERNAME},#{SEX}, #{BIRTHDAY}, #{ORGANIZATION},
+         #{INTRODUCE}, #{LOCATION},#{ADDRESS}, #{EMAIL}, #{QQ});
     </insert>
-    <delete id="delete">
+    <delete id="delete" parameterType="com.djweb.entity.UserEntity">
         DELETE FROM djc_user WHERE USERNAME = #{USERNAME};
     </delete>
-    <update id="update">
+    <update id="update" parameterType="com.djweb.entity.UserEntity">
         UPDATE djc_user SET PASSWORD = #{PASSWORD} WHERE USERNAME = #{USERNAME};
     </update>
-    <select id="select" resultType="com.djweb.entity.UserEntity">
+    <select id="select" parameterType="com.djweb.entity.UserEntity" resultType="com.djweb.entity.UserEntity">
         SELECT * FROM djc_user WHERE USERNAME = #{USERNAME};
     </select>
 </mapper>

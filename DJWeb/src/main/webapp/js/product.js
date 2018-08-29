@@ -5,6 +5,7 @@ layui.define(['layer','form','element'],function (exports) {
     var layer = layui.layer;
     var form = layui.form;
     var element = layui.element;
+    
     form.on('select(DAP)', function (data) {
         if (data.value == 0){
             var eid = document.getElementById("argument-details");
@@ -59,6 +60,28 @@ layui.define(['layer','form','element'],function (exports) {
             //layer.msg("RTMP");
         }
         return false;
+    });
+    
+    form.on('submit(formDemo)', function (data) {
+        $.ajax({
+            url:"http://localhost:8080/login.do",
+            type:"post",
+            contentType:"application/json",
+            datatype:"json",
+            data:JSON.stringify(data.field),
+            success:function (message) {
+                if (message.code == "0"){
+                    location.href = '../index.html';
+                    //layer.msg(message.msg);
+                }
+                else{
+                    layer.msg(message.msg);
+                }
+            },
+            error:function (message) {
+                layer.msg("error");
+            }
+        });
     });
 
     form.on('submit(cancel)', function (data) {

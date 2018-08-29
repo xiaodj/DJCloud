@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserInfoDTO{
     private String code;
-    private String nickname;    //昵称
+    private String username;    //用户名
 
     public String getCode() {
         return code;
@@ -18,11 +18,11 @@ public class UserInfoDTO{
         this.code = code;
     }
 
-    public String getNickname() {
-        return nickname;
+    public String getUsername() {
+        return username;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
-public class MessageDTO {
+public class MsgDTO {
     private String code;
     private String msg;
 
