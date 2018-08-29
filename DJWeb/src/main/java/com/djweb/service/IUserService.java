@@ -1,6 +1,7 @@
 package com.djweb.service;
 
 import com.djweb.dto.MsgDTO;
+import com.djweb.dto.UserInfoDTO;
 import com.djweb.entity.UserEntity;
 
 import java.util.Map;
@@ -15,5 +16,5 @@ public interface IUserService {
     //注册
     public MsgDTO register(Map<String, String> var);
     //获取用户信息
-    public UserEntity getUserInfo(Map<String, String> var);
+    public UserInfoDTO getUserInfo(String username);
 }

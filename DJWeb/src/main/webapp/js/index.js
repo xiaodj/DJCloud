@@ -6,7 +6,7 @@ layui.define(['layer', 'element'],function (exports) {
     var $ = layui.$;
 
     $.ajax({
-        url:"http://localhost:8080/userinfo.do",
+        url:"http://localhost:8080/islogin.do",
         type:"get",
         datatype:"json",
         success:function (message) {
@@ -15,8 +15,8 @@ layui.define(['layer', 'element'],function (exports) {
                 elclass.style.display = "none";
                 elclass = document.getElementById("login_in");
                 elclass.style.display = "inline";
-                elclass = document.getElementById("user_nick");
-                elclass.innerHTML = message.nickname;
+                elclass = document.getElementById("username");
+                elclass.innerHTML = message.username;
             }else{
                 //var elclass = document.getElementById("login_in");
                 //elclass.style.display = "none";

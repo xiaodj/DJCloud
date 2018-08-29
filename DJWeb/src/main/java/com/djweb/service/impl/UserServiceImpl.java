@@ -2,6 +2,7 @@ package com.djweb.service.impl;
 
 import com.djweb.dao.IUserDao;
 import com.djweb.dto.MsgDTO;
+import com.djweb.dto.UserInfoDTO;
 import com.djweb.entity.UserEntity;
 import com.djweb.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,16 +30,16 @@ public class UserServiceImpl implements IUserService{
     @Override
     public MsgDTO login(Map<String, String> var) {
 
-        String name = var.get("username");
+        String username = var.get("username");
         String passwd = var.get("password");
 
-        if (name.equals(null) || passwd.equals(null) || name.isEmpty() || passwd.isEmpty()) {
+        if (username.equals(null) || passwd.equals(null) || username.isEmpty() || passwd.isEmpty()) {
             msgDTO.setCode("1");
             msgDTO.setMsg("用户名或密码不能为空");
             return msgDTO;
         }
 
-        userEntity.setUSERNAME(name);
+        userEntity.setUSERNAME(username);
         List<UserEntity> userlist = new ArrayList<UserEntity>();
         userlist = iUserDao.select(userEntity);
         if(userlist.size() != 1){
@@ -48,7 +49,7 @@ public class UserServiceImpl implements IUserService{
         }
 
         userEntity = userlist.get(0);
-        if (!name.equals(userEntity.getUSERNAME()) || !passwd.equals(userEntity.getPASSWORD())){
+        if (!username.equals(userEntity.getUSERNAME()) || !passwd.equals(userEntity.getPASSWORD())){
             msgDTO.setCode("1");
             msgDTO.setMsg("用户名或密码不正确");
         }
@@ -63,7 +64,8 @@ public class UserServiceImpl implements IUserService{
 
         String name = var.get("username");
         String passwd = var.get("password");
-        String phone = var.get("phone");
+        String rpasswd = var.get("rpassword");
+        //String mobile = var.get("mobile");
 
         if (name.equals(null) || name.isEmpty()){
             msgDTO.setCode("1");
@@ -71,33 +73,45 @@ public class UserServiceImpl implements IUserService{
             return msgDTO;
         }
 
-        if (passwd.equals(null) || passwd.isEmpty()){
+        if (passwd.equals(null) || passwd.isEmpty() || rpasswd.equals(null) || rpasswd.isEmpty()){
             msgDTO.setCode("1");
             msgDTO.setMsg("密码不能为空");
             return msgDTO;
         }
 
-        if (phone.equals(null) || phone.isEmpty()){
+//        if (mobile.equals(null) || mobile.isEmpty()){
+//            msgDTO.setCode("1");
+//            msgDTO.setMsg("手机号不能为空");
+//            return msgDTO;
+//        }
+
+        if (!passwd.equals(rpasswd)){
             msgDTO.setCode("1");
-            msgDTO.setMsg("手机号不能为空");
+            msgDTO.setMsg("两次输入的密码不相同");
             return msgDTO;
         }
 
         userEntity.setUID(0);
         userEntity.setUSERNAME(name);
         userEntity.setPASSWORD(passwd);
-        userEntity.setPHONE(phone);
+        //userEntity.setMOBILE(mobile);
 
         iUserDao.insert(userEntity);
 
         msgDTO.setCode("0");
         msgDTO.setMsg("注册成功");
+
         return msgDTO;
     }
 
     @Override
-    public UserEntity getUserInfo(Map<String, String> var) {
-        return userEntity;
+    public UserInfoDTO getUserInfo(String username) {
+        UserInfoDTO userInfoDTO = new UserInfoDTO();
+        userEntity.setUSERNAME(username);
+        List<UserEntity> userlist = new ArrayList<UserEntity>();
+        userlist = iUserDao.select(userEntity);
+
+        return userInfoDTO;
     }
 
 

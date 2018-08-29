@@ -34,14 +34,13 @@ public class UserAction {
      */
     @RequestMapping(value = "/userinfo.do", method = RequestMethod.GET)
     public @ResponseBody UserInfoDTO getUserInfo(HttpSession session){
-        String name = (String) session.getAttribute("login");
-        if (name == null || name.isEmpty()){
+        String username = (String)session.getAttribute("username");
+        if (username == null || username.isEmpty()) {
             userInfoDTO.setCode("1");
             userInfoDTO.setUsername("");
-        }else {
-            userInfoDTO.setCode("0");
-            userInfoDTO.setUsername("邓江");
         }
+
+        userInfoDTO = iUser.getUserInfo(username);
 
         return userInfoDTO;
     }
@@ -56,7 +55,7 @@ public class UserAction {
         msgDTO = iUser.login(param);
         if (msgDTO.getCode() == "0"){
             session.setMaxInactiveInterval(2*60);
-            session.setAttribute("login","succ");
+            session.setAttribute("username",param.get("username"));
         }
         return msgDTO;
     }
@@ -77,16 +76,16 @@ public class UserAction {
      * @author dengjiang
      */
     @RequestMapping(value = "/islogin.do", method = RequestMethod.GET)
-    public @ResponseBody MsgDTO isLogin(HttpSession session){
-        String strLogin = (String)session.getAttribute("login");
-        if (strLogin == null || strLogin.isEmpty()) {
-            msgDTO.setCode("1");
-            msgDTO.setMsg("未登陆");
+    public @ResponseBody UserInfoDTO isLogin(HttpSession session){
+        String username = (String)session.getAttribute("username");
+        if (username == null || username.isEmpty()) {
+            userInfoDTO.setCode("1");
+            userInfoDTO.setUsername("");
         }else {
-            msgDTO.setCode("0");
-            msgDTO.setMsg("已登陆");
+            userInfoDTO.setCode("0");
+            userInfoDTO.setUsername(username);
         }
-        return msgDTO;
+        return userInfoDTO;
     }
 
     /**
