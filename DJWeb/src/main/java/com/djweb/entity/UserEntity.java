@@ -10,8 +10,9 @@ import org.springframework.stereotype.Component;
 public class UserEntity {
 
     private int UID;
-    private String USERNAME;
-    private String PASSWORD;
+    private String PHONE;   //手机号码
+    private String USERNAME;    //用户名
+    private String PASSWORD;    //密码
 
     public int getUID() {
         return UID;
@@ -19,6 +20,14 @@ public class UserEntity {
 
     public void setUID(int UID) {
         this.UID = UID;
+    }
+
+    public String getPHONE() {
+        return PHONE;
+    }
+
+    public void setPHONE(String PHONE) {
+        this.PHONE = PHONE;
     }
 
     public String getUSERNAME() {

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.djweb.dao.IUserDao">
     <insert id="insert" parameterType="com.djweb.entity.UserEntity">
-        INSERT INTO djc_user VALUES(#{UID}, #{USERNAME}, #{PASSWORD});
+        INSERT INTO djc_user VALUES(#{UID}, #{PHONE}, #{PASSWORD}, #{USERNAME});
     </insert>
     <delete id="delete">
         DELETE FROM djc_user WHERE USERNAME = #{USERNAME};

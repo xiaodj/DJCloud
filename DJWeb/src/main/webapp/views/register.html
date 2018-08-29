@@ -27,7 +27,7 @@
             <div class="layui-inline">
                 <label class="layui-form-label">用户名</label>
                 <div class="layui-input-inline">
-                    <input name="phone" class="layui-input" type="tel" autocomplete="off" lay-verify="required|phone">
+                    <input name="username" class="layui-input" type="tel" autocomplete="off" lay-verify="required|phone">
                 </div>
             </div>
         </div>
@@ -35,13 +35,21 @@
             <div class="layui-inline">
                 <label class="layui-form-label">密码</label>
                 <div class="layui-input-inline">
-                    <input name="phone" class="layui-input" type="password" autocomplete="off" lay-verify="required|phone">
+                    <input name="password" class="layui-input" type="password" autocomplete="off" lay-verify="required|phone">
                 </div>
             </div>
         </div>
         <div class="layui-form-item">
             <div class="layui-inline">
                 <label class="layui-form-label">确认密码</label>
+                <div class="layui-input-inline">
+                    <input name="rpassword" class="layui-input" type="password" autocomplete="off" lay-verify="required|phone">
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">手机号码</label>
                 <div class="layui-input-inline">
                     <input name="phone" class="layui-input" type="password" autocomplete="off" lay-verify="required|phone">
                 </div>
@@ -51,7 +59,7 @@
             <div class="layui-inline">
                 <label class="layui-form-label"></label>
                 <div class="layui-input-inline">
-                    <button class="layui-btn layui-btn-fluid" lay-filter="loginbtn" lay-submit>立即注册</button>
+                    <button class="layui-btn layui-btn-fluid" lay-filter="registerbtn" lay-submit>立即注册</button>
                 </div>
             </div>
         </div>

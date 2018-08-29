@@ -1,4 +1,4 @@
-package com.djweb.entity;
+package com.djweb.dto;
 
 import org.springframework.stereotype.Component;
 
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
-public class msgEntity {
+public class MsgDTO {
     private String code;
     private String msg;
 

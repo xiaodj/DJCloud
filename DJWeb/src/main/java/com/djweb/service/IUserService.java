@@ -1,5 +1,6 @@
 package com.djweb.service;
 
+import com.djweb.dto.MsgDTO;
 import com.djweb.entity.UserEntity;
 
 import java.util.Map;
@@ -10,9 +11,9 @@ import java.util.Map;
 public interface IUserService {
 
     //登陆
-    public boolean login(Map<String, String> var);
+    public MsgDTO login(Map<String, String> var);
     //注册
-    public boolean register(Map<String, String> var);
+    public MsgDTO register(Map<String, String> var);
     //获取用户信息
     public UserEntity getUserInfo(Map<String, String> var);
 }
