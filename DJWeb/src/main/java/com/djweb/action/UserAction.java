@@ -18,7 +18,7 @@ import java.util.Map;
  */
 
 @Controller
-public class userAction {
+public class UserAction {
 
     @Autowired
     private MsgDTO msgDTO;
