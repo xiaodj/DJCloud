@@ -32,7 +32,7 @@ public class UserAction {
      * @author dengjiang
      *
      */
-    @RequestMapping(value = "/userinfo.do", method = RequestMethod.GET)
+    @RequestMapping(value = "/userinfo", method = RequestMethod.GET)
     public @ResponseBody UserInfoDTO getUserInfo(HttpSession session){
         String username = (String)session.getAttribute("username");
         if (username == null || username.isEmpty()) {
@@ -49,7 +49,7 @@ public class UserAction {
      *  登录
      * @author dengjiang
      */
-    @RequestMapping(value = "/login.do", method = RequestMethod.POST)
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     public @ResponseBody MsgDTO login(@RequestBody Map<String, String> param, HttpSession session){
 
         msgDTO = iUser.login(param);
@@ -64,7 +64,7 @@ public class UserAction {
      * 用户注册
      * @author dengjiang
      */
-    @RequestMapping(value = "/register.do", method = RequestMethod.POST)
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
     public @ResponseBody MsgDTO register(@RequestBody Map<String, String> map){
 
         msgDTO = iUser.register(map);
@@ -75,7 +75,7 @@ public class UserAction {
      * 用户是否登陆
      * @author dengjiang
      */
-    @RequestMapping(value = "/islogin.do", method = RequestMethod.GET)
+    @RequestMapping(value = "/islogin", method = RequestMethod.GET)
     public @ResponseBody UserInfoDTO isLogin(HttpSession session){
         String username = (String)session.getAttribute("username");
         if (username == null || username.isEmpty()) {
@@ -92,7 +92,7 @@ public class UserAction {
      * 退出登录
      * @author dengjiang
      */
-    @RequestMapping(value = "/outlogin.do", method = RequestMethod.POST)
+    @RequestMapping(value = "/outlogin", method = RequestMethod.POST)
     public @ResponseBody MsgDTO outLogin(HttpSession session) {
         String strLogin = (String)session.getAttribute("login");
         if (strLogin == null || strLogin.isEmpty()) {

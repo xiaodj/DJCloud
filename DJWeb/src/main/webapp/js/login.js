@@ -9,7 +9,7 @@ layui.define(['layer','form'],function (exports) {
 
     form.on('submit(loginbtn)', function (data) {
         $.ajax({
-            url:"http://localhost:8080/login.do",
+            url:"http://localhost:8080/login",
             type:"post",
             contentType:"application/json",
             datatype:"json",

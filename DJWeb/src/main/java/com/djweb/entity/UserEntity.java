@@ -15,7 +15,7 @@ public class UserEntity {
     private String USERNAME;    //用户名
     private String SEX;         //性别
     private String BIRTHDAY;    //出生日期
-    private String ORGANIZATION;
+    private String ORGANIZATION;    //工作单位或所在学校
     private String INTRODUCE;   //个人简介
     private String LOCATION;    //所在地
     private String ADDRESS;     //详细地址

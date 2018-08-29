@@ -11,7 +11,7 @@ import java.util.List;
  */
 
 @Repository
-public interface IUserDao extends IBaseDao<UserEntity>{
+public interface IUserDAO extends IBaseDAO<UserEntity>{
     //增
     public boolean insert(UserEntity userEntity);
     //删

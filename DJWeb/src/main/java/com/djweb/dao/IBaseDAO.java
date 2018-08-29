@@ -2,7 +2,7 @@ package com.djweb.dao;
 
 import java.util.List;
 
-public interface IBaseDao<T> {
+public interface IBaseDAO<T> {
     //增
     public boolean insert(T var);
     //删

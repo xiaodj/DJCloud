@@ -1,6 +1,6 @@
 package com.djweb.service.impl;
 
-import com.djweb.dao.IUserDao;
+import com.djweb.dao.IUserDAO;
 import com.djweb.dto.MsgDTO;
 import com.djweb.dto.UserInfoDTO;
 import com.djweb.entity.UserEntity;
@@ -20,7 +20,7 @@ import java.util.Map;
 public class UserServiceImpl implements IUserService{
 
     @Autowired
-    private IUserDao iUserDao;
+    private IUserDAO iUserDao;
     @Autowired
     private UserEntity userEntity;
     @Autowired
