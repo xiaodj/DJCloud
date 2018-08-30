@@ -16,14 +16,14 @@ public class ProductServiceImpl implements IProductService {
 
     @Autowired
     private MsgDTO msgDTO;
-    @Autowired
-    private ProductEntity productEntity;
+        @Autowired
+        private ProductEntity productEntity;
 
-    @Override
-    public MsgDTO createProduct(Map<String, String> var) {
+        @Override
+        public MsgDTO createProduct(Map<String, String> var) {
 
-        String prodname = var.get("prodname");
+            String prodname = var.get("prodname");
 
-        return msgDTO;
+            return msgDTO;
     }
 }
