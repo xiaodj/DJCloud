@@ -34,13 +34,15 @@ public class UserAction {
      */
     @RequestMapping(value = "/userinfo", method = RequestMethod.GET)
     public @ResponseBody UserInfoDTO getUserInfo(HttpSession session){
-        String username = (String)session.getAttribute("username");
-        if (username == null || username.isEmpty()) {
-            userInfoDTO.setCode("1");
+        String login = (String)session.getAttribute("login");
+        if (login.equals(null) || login.isEmpty() || !login.equals("yes")) {
+            userInfoDTO.setCode(1);
             userInfoDTO.setUsername("");
+        } else {
+            int uid = (int)session.getAttribute("uid");
+            //用户ID
+            userInfoDTO = iUser.getUserInfo(uid);
         }
-
-        userInfoDTO = iUser.getUserInfo(username);
 
         return userInfoDTO;
     }
@@ -52,11 +54,7 @@ public class UserAction {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public @ResponseBody MsgDTO login(@RequestBody Map<String, String> param, HttpSession session){
 
-        msgDTO = iUser.login(param);
-        if (msgDTO.getCode() == "0"){
-            session.setMaxInactiveInterval(2*60);
-            session.setAttribute("username",param.get("username"));
-        }
+        msgDTO = iUser.login(param, session);
         return msgDTO;
     }
 
@@ -66,7 +64,6 @@ public class UserAction {
      */
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public @ResponseBody MsgDTO register(@RequestBody Map<String, String> map){
-
         msgDTO = iUser.register(map);
         return msgDTO;
     }
@@ -76,16 +73,14 @@ public class UserAction {
      * @author dengjiang
      */
     @RequestMapping(value = "/islogin", method = RequestMethod.GET)
-    public @ResponseBody UserInfoDTO isLogin(HttpSession session){
-        String username = (String)session.getAttribute("username");
-        if (username == null || username.isEmpty()) {
-            userInfoDTO.setCode("1");
-            userInfoDTO.setUsername("");
+    public @ResponseBody MsgDTO isLogin(HttpSession session){
+        String login = (String)session.getAttribute("login");
+        if (login.equals(null) || login.isEmpty() || login.equals("yes")) {
+            msgDTO.setCode(1);
         }else {
-            userInfoDTO.setCode("0");
-            userInfoDTO.setUsername(username);
+            msgDTO.setCode(0);
         }
-        return userInfoDTO;
+        return msgDTO;
     }
 
     /**
@@ -94,14 +89,12 @@ public class UserAction {
      */
     @RequestMapping(value = "/outlogin", method = RequestMethod.POST)
     public @ResponseBody MsgDTO outLogin(HttpSession session) {
-        String strLogin = (String)session.getAttribute("login");
-        if (strLogin == null || strLogin.isEmpty()) {
-            msgDTO.setCode("1");
-            msgDTO.setMsg("未登陆");
+        String login = (String)session.getAttribute("login");
+        if (login.equals(null) || login.isEmpty() || login.equals("yes")) {
+            msgDTO.setCode(1);
         }else {
             session.invalidate();
-            msgDTO.setCode("0");
-            msgDTO.setMsg("已退出登陆");
+            msgDTO.setCode(0);
         }
         return msgDTO;
     }

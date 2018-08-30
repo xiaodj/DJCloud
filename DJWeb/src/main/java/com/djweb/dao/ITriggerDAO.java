@@ -5,7 +5,7 @@ import com.djweb.entity.TriggerEntity;
 
 import java.util.List;
 
-public interface ITriggerDAO extends IBaseDAO<TriggerEntity> {
+public interface ITriggerDAO{
     //增
     public boolean insert(TriggerEntity triggerEntity);
     //删

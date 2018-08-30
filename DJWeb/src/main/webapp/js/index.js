@@ -6,11 +6,11 @@ layui.define(['layer', 'element'],function (exports) {
     var $ = layui.$;
 
     $.ajax({
-        url:"http://localhost:8080/islogin",
+        url:"http://localhost:8080/userinfo",
         type:"get",
         datatype:"json",
         success:function (message) {
-            if (message.code == "0"){
+            if (message.code == 0){
                 var elclass = document.getElementById("login_out");
                 elclass.style.display = "none";
                 elclass = document.getElementById("login_in");

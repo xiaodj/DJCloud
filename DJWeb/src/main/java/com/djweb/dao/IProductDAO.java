@@ -5,13 +5,13 @@ import com.djweb.entity.ProductEntity;
 
 import java.util.List;
 
-public interface IProductDAO extends IBaseDAO<ProductEntity> {
+public interface IProductDAO{
     //增
     public boolean insert(ProductEntity productEntity);
     //删
     public boolean delete(ProductEntity productEntity);
     //改
     public boolean update(ProductEntity productEntity);
-    //查询
-    public List<ProductEntity> select(ProductEntity productEntity);
+    //查询产品信息
+    public List<ProductEntity> selectByUID(int uid);
 }

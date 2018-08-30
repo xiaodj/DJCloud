@@ -1,20 +1,22 @@
 package com.djweb.dto;
 
+import org.springframework.stereotype.Component;
+
 import java.util.List;
 import java.util.Map;
-
+@Component
 public class ProductsInfoDTO {
-    private String code;
+    private int code;
     private int pubcount;   //公开协议产品个数
     private int pricount;   //私有协议产品个数
     private List<ProductsInfo> pubInfo;  //公开协议产品信息
     private List<ProductsInfo> priInfo;  //私有协议产品信息
 
-    public String getCode() {
+    public int getCode() {
         return code;
     }
 
-    public void setCode(String code) {
+    public void setCode(int code) {
         this.code = code;
     }
 

@@ -11,11 +11,23 @@ public class ProductEntity {
     private String PRODSCHEDULE;	//产品进度
     private String PRODINTRODUCE;	//产品简介
     private String OS;	//操作系统
-    private String HEDNO;	//网络运营商
+    private String MOBILE;  //移动
+    private String TELECOM; //电信
+    private String UNICOM;  //联通
+    private String OTHER;   //其它运营商
     private String ACCESSWAY;	//设备接入方式
     private String NETWAY;	//联网方式
     private String MODUSELECT;	//模组选择
     private String ACCPROTOCOL;	//设备接入协议
+    private int UID;    //用户ID
+
+    public int getUID() {
+        return UID;
+    }
+
+    public void setUID(int UID) {
+        this.UID = UID;
+    }
 
     public int getPID() {
         return PID;
@@ -73,12 +85,36 @@ public class ProductEntity {
         this.OS = OS;
     }
 
-    public String getHEDNO() {
-        return HEDNO;
+    public String getMOBILE() {
+        return MOBILE;
     }
 
-    public void setHEDNO(String HEDNO) {
-        this.HEDNO = HEDNO;
+    public void setMOBILE(String MOBILE) {
+        this.MOBILE = MOBILE;
+    }
+
+    public String getTELECOM() {
+        return TELECOM;
+    }
+
+    public void setTELECOM(String TELECOM) {
+        this.TELECOM = TELECOM;
+    }
+
+    public String getUNICOM() {
+        return UNICOM;
+    }
+
+    public void setUNICOM(String UNICOM) {
+        this.UNICOM = UNICOM;
+    }
+
+    public String getOTHER() {
+        return OTHER;
+    }
+
+    public void setOTHER(String OTHER) {
+        this.OTHER = OTHER;
     }
 
     public String getACCESSWAY() {

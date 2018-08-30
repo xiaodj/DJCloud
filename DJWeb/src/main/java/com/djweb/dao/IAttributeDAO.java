@@ -5,7 +5,7 @@ import com.djweb.entity.UserEntity;
 
 import java.util.List;
 
-public interface IAttributeDAO extends IBaseDAO<AttributeEntity> {
+public interface IAttributeDAO {
     //增
     public boolean insert(AttributeEntity attrEntity);
     //删
