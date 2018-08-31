@@ -5,7 +5,7 @@ import com.djweb.entity.DeviceEntity;
 
 import java.util.List;
 
-public interface IDeviceDAO extends IBaseDAO<DeviceEntity> {
+public interface IDeviceDAO{
     //增
     public boolean insert(DeviceEntity deviceEntity);
     //删

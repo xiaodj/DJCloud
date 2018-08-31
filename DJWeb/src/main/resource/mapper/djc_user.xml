@@ -7,13 +7,23 @@
         VALUES(#{MOBILE}, #{PASSWORD}, #{USERNAME},#{SEX}, #{BIRTHDAY}, #{ORGANIZATION},
          #{INTRODUCE}, #{LOCATION},#{ADDRESS}, #{EMAIL}, #{QQ});
     </insert>
-    <delete id="delete" parameterType="com.djweb.entity.UserEntity">
+
+    <!-- 删除用户信息 -->
+    <delete id="deleteByName">
         DELETE FROM djc_user WHERE USERNAME = #{USERNAME};
     </delete>
-    <update id="update" parameterType="com.djweb.entity.UserEntity">
+    <delete id="deleteByUID">
+        DELETE FROM djc_user WHERE UID = #{UID};
+    </delete>
+    <!--<update id="update" parameterType="com.djweb.entity.UserEntity">
         UPDATE djc_user SET PASSWORD = #{PASSWORD} WHERE USERNAME = #{USERNAME};
-    </update>
-    <select id="select" parameterType="com.djweb.entity.UserEntity" resultType="com.djweb.entity.UserEntity">
+    </update>-->
+
+    <!-- 查询用户信息 -->
+    <select id="selectByName" resultType="com.djweb.entity.UserEntity">
         SELECT * FROM djc_user WHERE USERNAME = #{USERNAME};
+    </select>
+    <select id="selectByUID" resultType="com.djweb.entity.UserEntity">
+        SELECT * FROM djc_user WHERE UID = #{UID};
     </select>
 </mapper>

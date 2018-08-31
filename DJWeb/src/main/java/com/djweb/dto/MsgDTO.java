@@ -3,27 +3,17 @@ package com.djweb.dto;
 import org.springframework.stereotype.Component;
 
 /**
- * Created by xiaodj on 2018/7/16.
+ * Created by xiaodj on 2018/8/30.
  */
-
 @Component
 public class MsgDTO {
-    private String code;
-    private String msg;
+    private int code;
 
-    public String getCode() {
+    public int getCode() {
         return code;
     }
 
-    public void setCode(String code) {
+    public void setCode(int code) {
         this.code = code;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
     }
 }

@@ -11,13 +11,17 @@ import java.util.List;
  */
 
 @Repository
-public interface IUserDAO extends IBaseDAO<UserEntity>{
+public interface IUserDAO{
     //增
     public boolean insert(UserEntity userEntity);
-    //删
-    public boolean delete(UserEntity userEntity);
-    //改
-    public boolean update(UserEntity userEntity);
-    //查询
-    public List<UserEntity> select(UserEntity userEntity);
+    //删除用户
+    public boolean deleteByUID(int uid);
+    //删除用户
+    public boolean deleteByName(String username);
+    //更改用户信息
+    //public boolean update(UserEntity userEntity);
+    //查询用户信息
+    public UserEntity selectByName(String username);
+    //查询用户信息
+    public UserEntity selectByUID(int uid);
 }

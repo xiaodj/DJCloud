@@ -7,14 +7,14 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class UserInfoDTO{
-    private String code;
+    private int code;
     private String username;    //用户名
 
-    public String getCode() {
+    public int getCode() {
         return code;
     }
 
-    public void setCode(String code) {
+    public void setCode(int code) {
         this.code = code;
     }
 
