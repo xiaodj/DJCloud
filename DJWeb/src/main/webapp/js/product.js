@@ -64,31 +64,21 @@ layui.define(['layer','form'],function (exports) {
     });
     
     form.on('submit(ok)', function (data) {
-        //var prodname = document.getElementsByName("prodname");
-
-        //layer.msg(JSON.stringify(data.field));
-
-        $.ajax({
-            url:"http://localhost:8080/product",
-            type:"post",
-            contentType:"application/json",
-            datatype:"json",
-            data:JSON.stringify(data.field),
-            success:function (message) {
-                if (message.code == "0"){
-                    location.href = '../index.html';
-                    //layer.msg(message.msg);
-                }
-                else{
-                    layer.msg(message.msg);
-                }
-            },
-            error:function (message) {
-                layer.msg("error");
-            }
-        });
-        return false;
+        createProduct($, data, fn);
     });
+    
+    function fn(msg) {
+        if (msg == "err"){
+            layer.msg("net error");
+            return false;
+        }
+
+        if (msg.code == 0){
+            location.href = '../index.html';
+        } else if (msg.code == 1){
+            layer.msg("");
+        }
+    }
 
     form.on('submit(cancel)', function (data) {
         location.href = '../views/develop.html';

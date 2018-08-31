@@ -8,17 +8,17 @@ layui.define(['layer','form'],function (exports) {
 
     form.on('submit(loginbtn)', function (data) {
         login($, data, fn);
-    }
+    });
 
-    function fn(loginInfo) {
-        if (loginInfo == "err"){
+    function fn(msg) {
+        if (msg == "err"){
             layer.msg("net error");
             return false;
         }
 
-        if (loginInfo.code == 0) {
+        if (msg.code == 0) {
             location.href = '../index.html';
-        }else if (loginInfo.code == 1){
+        }else if (msg.code == 1){
             layer.msg("");
         }
     }
