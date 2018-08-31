@@ -5,28 +5,24 @@ layui.define(['layer', 'element'],function (exports) {
     var layer = layui.layer;
     var $ = layui.$;
 
-    $.ajax({
-        url:"http://localhost:8080/userinfo",
-        type:"get",
-        datatype:"json",
-        success:function (message) {
-            if (message.code == 0){
-                var elclass = document.getElementById("login_out");
-                elclass.style.display = "none";
-                elclass = document.getElementById("login_in");
-                elclass.style.display = "inline";
-                elclass = document.getElementById("username");
-                elclass.innerHTML = message.username;
-            }else{
-                //var elclass = document.getElementById("login_in");
-                //elclass.style.display = "none";
-            }
-        },
-        error:function (message) {
-            //var elclass = document.getElementById("login_in");
-            //elclass.style.display = "none";
+    //获取用户信息
+    getUserInfo($, fn);
+
+    function fn(userInfo) {
+        if (userInfo == "err"){
+            layer.msg("net error");
+            return false;
         }
-    });
+
+        if (userInfo.code == 0){
+            var nouser = document.getElementById("no_user");
+            nouser.style.display = "none";
+            var user = document.getElementById("user");
+            user.style.display = "inline";
+            var usernm = document.getElementById("username");
+            usernm.innerHTML = userInfo.username;
+        }
+    }
 
     exports('index', {});
 });

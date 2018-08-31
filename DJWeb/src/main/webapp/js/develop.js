@@ -17,6 +17,34 @@ layui.define(['layer','element'],function (exports) {
                 htmlID.innerHTML = message.pubcount;
                 htmlID = document.getElementById("pricount");
                 htmlID.innerHTML = message.pricount;
+
+                var vprod = "";
+                //公有协议
+                htmlID = document.getElementById("pubprod");
+                for (var i = 0; i < message.pubcount; i++){
+                    var vpc = "<div class=\"product-list\">";
+                    vpc += "<div class=\"product-content\">";
+                    vpc += "<div class=\"product-name\">";
+                    vpc += "</div>";
+                    vpc += "</div>";
+                    vpc += "</div>";
+                    vprod += vpc;
+                }
+                htmlID.innerHTML = vprod;
+                //私有协议
+                vprod = "";
+                htmlID = document.getElementById("priprod");
+                for (var j = 0; j < message.pricount; j++){
+                    var vpc = "<div class=\"product-list\">";
+                    vpc += "<div class=\"product-content\">";
+                    vpc += "<div class=\"product-name\">";
+                    vpc += "</div>";
+                    vpc += "</div>";
+                    vpc += "</div>";
+                    vprod += vpc;
+                }
+                htmlID.innerHTML = vprod;
+
             }else{
                 //var elclass = document.getElementById("login_in");
                 //elclass.style.display = "none";
@@ -27,21 +55,6 @@ layui.define(['layer','element'],function (exports) {
             //elclass.style.display = "none";
         }
     });
-
-
-
-    /*var eid = document.getElementById("public-dev");
-    var vprod = "";
-    for (var i = 0; i < 3; i++){
-        var vpc = "<div class=\"product-list\">";
-        vpc += "<div class=\"product-content\">";
-        vpc += "<div class=\"product-name\">";
-        vpc += "</div>";
-        vpc += "</div>";
-        vpc += "</div>";
-        vprod += vpc;
-    }
-    eid.innerHTML = vprod;*/
-
+    
     exports('develop', {});
 });

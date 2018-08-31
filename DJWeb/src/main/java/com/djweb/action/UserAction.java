@@ -35,7 +35,7 @@ public class UserAction {
     @RequestMapping(value = "/userinfo", method = RequestMethod.GET)
     public @ResponseBody UserInfoDTO getUserInfo(HttpSession session){
         String login = (String)session.getAttribute("login");
-        if (login.equals(null) || login.isEmpty() || !login.equals("yes")) {
+        if (login == null || login.isEmpty() || !login.equals("yes")) {
             userInfoDTO.setCode(1);
             userInfoDTO.setUsername("");
         } else {

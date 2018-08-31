@@ -5,6 +5,7 @@
     <title>首页</title>
     <link rel="stylesheet" href="css/djweb.min.css">
     <link rel="stylesheet" href="lib/layui/css/layui.css">
+    <script src="js/net.js"></script>
     <script src="lib/layui/layui.js"></script>
     <script>
         layui.config({
@@ -36,7 +37,7 @@
                     </dl>
                 </li>
             </ul>
-            <ul id="login_in" class="layui-nav layui-layout-right" style="display: none">
+            <ul id="user" class="layui-nav layui-layout-right" style="display: none">
                 <li class="layui-nav-item"><a href="views/develop.html">开发者中心</a></li>
                 <li class="layui-nav-item"><a href="">消息<span class="layui-badge">9</span></a></li>
                 <li class="layui-nav-item">
@@ -51,7 +52,7 @@
                     </dl>
                 </li>
             </ul>
-            <ul id="login_out" class="layui-nav layui-layout-right">
+            <ul id="no_user" class="layui-nav layui-layout-right">
                 <li class="layui-nav-item">
                     <a href="views/login.html">登录</a>
                 </li>
