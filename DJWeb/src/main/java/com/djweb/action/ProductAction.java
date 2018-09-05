@@ -22,7 +22,7 @@ public class ProductAction {
     @Autowired
     private MsgDTO msgDTO;
     @Autowired
-    ProductsInfoDTO prodsInfoDTO;
+    private ProductsInfoDTO prodsInfoDTO;
 
     /**
      * 添加产品
@@ -38,7 +38,7 @@ public class ProductAction {
      */
     @RequestMapping(value = "/product/{pid}", method = RequestMethod.DELETE)
     public @ResponseBody MsgDTO deleteProduct(@PathVariable("pid") String pid){
-
+        msgDTO = IProdService.deleteProduct(pid);
         return msgDTO;
     }
 
@@ -70,7 +70,7 @@ public class ProductAction {
         if (login.equals(null) || login.isEmpty() || !login.equals("yes")) {
             prodsInfoDTO.setCode(1);
         } else {
-            int uid = (int)session.getAttribute("uid");
+            String uid = (String) session.getAttribute("uid");
             //用户ID
             prodsInfoDTO = IProdService.getProductsInfo(uid);
         }

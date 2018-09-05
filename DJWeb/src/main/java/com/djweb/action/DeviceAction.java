@@ -1,13 +1,12 @@
 package com.djweb.action;
 
+import com.djweb.dto.DeviceInfoDTO;
+import com.djweb.dto.DevicesInfoDTO;
 import com.djweb.dto.MsgDTO;
 import com.djweb.service.IDeviceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -18,6 +17,10 @@ public class DeviceAction {
     private IDeviceService IDevService;
     @Autowired
     private MsgDTO msgDTO;
+    @Autowired
+    private DevicesInfoDTO devsInfoDTO;
+    @Autowired
+    private DeviceInfoDTO devInfoDTO;
 
     /**
      * 添加设备
@@ -32,8 +35,9 @@ public class DeviceAction {
      * 删除设备
      */
     @RequestMapping(value = "/devices/{did}", method = RequestMethod.DELETE)
-    public void delDevice(){
-
+    public @ResponseBody MsgDTO delDevice(@PathVariable("did") String did){
+        msgDTO = IDevService.deleteDevice(did);
+        return msgDTO;
     }
 
     /**
@@ -45,18 +49,20 @@ public class DeviceAction {
     }
 
     /**
-     * 查询设备详细信息
+     * 查询产品中所有设备基本信息
      */
-    @RequestMapping(value = "/devices/{did}", method = RequestMethod.GET)
-    public void getDeviceInfo(){
-
+    @RequestMapping(value = "/product/{pid}/devices", method = RequestMethod.GET)
+    public DevicesInfoDTO getDevicesInfo(@PathVariable("pid") String pid){
+        devsInfoDTO = IDevService.getDevicesInfo(pid);
+        return devsInfoDTO;
     }
 
     /**
-     * 查询产品中所有设备基本信息
+     * 查询设备详细信息
      */
-    @RequestMapping(value = "/devices", method = RequestMethod.GET)
-    public void getDevicesInfo(){
-
+    @RequestMapping(value = "/product/{pid}/devices/{did}", method = RequestMethod.GET)
+    public DeviceInfoDTO getDeviceInfo(@PathVariable("did") String did){
+        devInfoDTO = IDevService.getDeviceInfo(did);
+        return devInfoDTO;
     }
 }

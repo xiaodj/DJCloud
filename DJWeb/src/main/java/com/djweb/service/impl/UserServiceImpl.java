@@ -106,9 +106,9 @@ public class UserServiceImpl implements IUserService{
     }
 
     @Override
-    public UserInfoDTO getUserInfo(int uid) {
+    public UserInfoDTO getUserInfo(String uid) {
         UserInfoDTO userInfoDTO = new UserInfoDTO();
-        userEntity = iUserDao.selectByUID(uid);
+        userEntity = iUserDao.selectByUID(Integer.valueOf(uid));
 
         if (userEntity.getUSERNAME().isEmpty() || userEntity.getUSERNAME().equals(null)){
             userInfoDTO.setCode(100);
@@ -118,6 +118,4 @@ public class UserServiceImpl implements IUserService{
         }
         return userInfoDTO;
     }
-
-
 }

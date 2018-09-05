@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.djweb.dao.IDeviceDAO">
+    <!-- 添加设备 -->
+    <insert id="insert" parameterType="com.djweb.entity.DeviceEntity">
+        INSERT INTO djc_product_device(DEVNAME, DEVIDENTIFY, DATASECURITY, PID)
+        VALUES(#{DEVNAME}, #{DEVIDENTIFY}, #{DATASECURITY},#{PID});
+    </insert>
+    <!-- 根据设备ID删除设备 -->
+    <delete id="deleteByDID">
+        DELETE FROM djc_product_device WHERE DID = #{DID};
+    </delete>
+    <!--<update id="update" parameterType="com.djweb.entity.UserEntity">
+        UPDATE djc_user SET PASSWORD = #{PASSWORD} WHERE USERNAME = #{USERNAME};
+    </update>-->
+    <!-- 根据产品ID查询设备信息 -->
+    <select id="selectByPID" resultType="com.djweb.entity.DeviceEntity">
+        SELECT * FROM djc_product_device WHERE PID = #{PID};
+    </select>
+    <!-- 根据设备ID查询设备信息 -->
+    <select id="selectByDID" resultType="com.djweb.entity.DeviceEntity">
+        SELECT * FROM djc_product_device WHERE DID = #{DID};
+    </select>
+</mapper>

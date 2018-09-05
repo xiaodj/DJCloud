@@ -5,18 +5,18 @@ import org.springframework.stereotype.Component;
 @Component
 public class AttributeEntity {
 
-    private int AID;	//属性编号
-    private String ATTRENNAME;	//产品属性英文名称
-    private String ATTRCNNAME;	//产品属性中文名称
-    private String UNITNAME;	//属性单位名称
-    private String UNITSYMBOL;	//属性单位符号
-    private int PID;	//产品编码
+    private Integer AID;	    //属性编号
+    private String  ATTRENNAME;	//产品属性英文名称
+    private String  ATTRCNNAME;	//产品属性中文名称
+    private String  UNITNAME;	//属性单位名称
+    private String  UNITSYMBOL;	//属性单位符号
+    private Integer PID;	//产品编码
 
-    public int getAID() {
+    public Integer getAID() {
         return AID;
     }
 
-    public void setAID(int AID) {
+    public void setAID(Integer AID) {
         this.AID = AID;
     }
 
@@ -52,11 +52,11 @@ public class AttributeEntity {
         this.UNITSYMBOL = UNITSYMBOL;
     }
 
-    public int getPID() {
+    public Integer getPID() {
         return PID;
     }
 
-    public void setPID(int PID) {
+    public void setPID(Integer PID) {
         this.PID = PID;
     }
 }

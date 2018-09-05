@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ProductEntity {
-    private int PID;	//产品编号
+    private Integer PID;	//产品编号
     private String PRODNAME;	//产品名称
     private String PRODINDUSTRY;	//产品行业
     private String PRODCATEGORY;	//产品类别
@@ -19,21 +19,21 @@ public class ProductEntity {
     private String NETWAY;	//联网方式
     private String MODUSELECT;	//模组选择
     private String ACCPROTOCOL;	//设备接入协议
-    private int UID;    //用户ID
+    private Integer UID;    //用户ID
 
-    public int getUID() {
+    public Integer getUID() {
         return UID;
     }
 
-    public void setUID(int UID) {
+    public void setUID(Integer UID) {
         this.UID = UID;
     }
 
-    public int getPID() {
+    public Integer getPID() {
         return PID;
     }
 
-    public void setPID(int PID) {
+    public void setPID(Integer PID) {
         this.PID = PID;
     }
 

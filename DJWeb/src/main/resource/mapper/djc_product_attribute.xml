@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.djweb.dao.IAttributeDAO">
+    <!-- 添加属性点 -->
+    <insert id="insert" parameterType="com.djweb.entity.UserEntity">
+        INSERT INTO djc_product_attribute(ATTRENNAME, ATTRCNNAME, UNITNAME, UNITSYMBOL, PID)
+        VALUES(#{ATTRENNAME}, #{ATTRCNNAME}, #{UNITNAME},#{UNITSYMBOL}, #{PID});
+    </insert>
+    <!-- 根据属性ID删除属性 -->
+    <delete id="deleteByAID">
+        DELETE FROM djc_product_attribute WHERE UID = #{UID};
+    </delete>
+    <!--<update id="update" parameterType="com.djweb.entity.UserEntity">
+        UPDATE djc_user SET PASSWORD = #{PASSWORD} WHERE USERNAME = #{USERNAME};
+    </update>-->
+
+    <!-- 根据产品ID查询属性信息 -->
+    <select id="selectByPID" resultType="com.djweb.entity.AttributeEntity">
+        SELECT * FROM djc_product_attribute WHERE PID = #{PID};
+    </select>
+</mapper>

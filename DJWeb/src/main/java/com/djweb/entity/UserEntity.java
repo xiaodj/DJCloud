@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserEntity {
 
-    private int UID;        //用户ID
+    private Integer UID;        //用户ID
     private String MOBILE;   //手机号码
     private String PASSWORD;    //密码
     private String USERNAME;    //用户名
@@ -22,11 +22,11 @@ public class UserEntity {
     private String EMAIL;       //邮箱
     private String QQ;          //QQ号
 
-    public int getUID() {
+    public Integer getUID() {
         return UID;
     }
 
-    public void setUID(int UID) {
+    public void setUID(Integer UID) {
         this.UID = UID;
     }
 

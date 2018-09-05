@@ -39,7 +39,7 @@ public class UserAction {
             userInfoDTO.setCode(1);
             userInfoDTO.setUsername("");
         } else {
-            int uid = (int)session.getAttribute("uid");
+            String uid = (String)session.getAttribute("uid");
             //用户ID
             userInfoDTO = iUser.getUserInfo(uid);
         }

@@ -2,6 +2,7 @@ package com.djweb.service.impl;
 
 import com.djweb.dao.IProductDAO;
 import com.djweb.dto.MsgDTO;
+import com.djweb.dto.ProductInfoDTO;
 import com.djweb.dto.ProductsInfo;
 import com.djweb.dto.ProductsInfoDTO;
 import com.djweb.entity.ProductEntity;
@@ -29,10 +30,10 @@ public class ProductServiceImpl implements IProductService {
     private IProductDAO iprodDAO;
 
     @Override
-    public ProductsInfoDTO getProductsInfo(int uid) {
+    public ProductsInfoDTO getProductsInfo(String uid) {
 
         List<ProductEntity> listProduct = new ArrayList<ProductEntity>();
-        listProduct = iprodDAO.selectByUID(uid);
+        listProduct = iprodDAO.selectByUID(Integer.valueOf(uid));
 
         int pubcount = 0;
         int pracount = 0;
@@ -63,6 +64,11 @@ public class ProductServiceImpl implements IProductService {
         prodsInfoDTO.setPubInfo(pubList);
         prodsInfoDTO.setPriInfo(priList);
         return prodsInfoDTO;
+    }
+
+    @Override
+    public ProductInfoDTO getProductInfo(String pid) {
+        return null;
     }
 
     @Override
@@ -101,6 +107,12 @@ public class ProductServiceImpl implements IProductService {
         iprodDAO.insert(productEntity);
 
         msgDTO.setCode(0);
+        return msgDTO;
+    }
+
+    @Override
+    public MsgDTO deleteProduct(String pid) {
+        iprodDAO.deleteByPID(Integer.valueOf(pid));
         return msgDTO;
     }
 }

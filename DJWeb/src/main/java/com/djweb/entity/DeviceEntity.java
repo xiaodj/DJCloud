@@ -5,17 +5,17 @@ import org.springframework.stereotype.Component;
 @Component
 public class DeviceEntity {
 
-    private int DID;	//设备编号
+    private Integer DID;	//设备编号
     private String DEVNAME;	//设备名称
     private String DEVIDENTIFY;	//设备标识码
     private String DATASECURITY;	//数据保密性
-    private int PID;	//产品编码
+    private Integer PID;	//产品编码
 
-    public int getDID() {
+    public Integer getDID() {
         return DID;
     }
 
-    public void setDID(int DID) {
+    public void setDID(Integer DID) {
         this.DID = DID;
     }
 
@@ -43,11 +43,11 @@ public class DeviceEntity {
         this.DATASECURITY = DATASECURITY;
     }
 
-    public int getPID() {
+    public Integer getPID() {
         return PID;
     }
 
-    public void setPID(int PID) {
+    public void setPID(Integer PID) {
         this.PID = PID;
     }
 }

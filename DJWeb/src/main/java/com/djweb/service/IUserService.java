@@ -16,5 +16,5 @@ public interface IUserService {
     //注册
     public MsgDTO register(Map<String, String> var);
     //获取用户信息
-    public UserInfoDTO getUserInfo(int uid);
+    public UserInfoDTO getUserInfo(String uid);
 }

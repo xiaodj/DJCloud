@@ -5,19 +5,19 @@ import org.springframework.stereotype.Component;
 @Component
 public class TriggerEntity {
 
-    private int TID;	//触发器编号
+    private Integer TID;	//触发器编号
     private String TRIGNAME;	//触发器名称
     private String CONTROLAREA;	//控制范围
     private String ATTRNAME;	//产品属性名称
     private String TRIGCONDITION;	//触发条件
     private String ACCEPTWAY;	//接受信息方式
-    private int PID;	//产品编码
+    private Integer PID;	//产品编码
 
-    public int getTID() {
+    public Integer getTID() {
         return TID;
     }
 
-    public void setTID(int TID) {
+    public void setTID(Integer TID) {
         this.TID = TID;
     }
 
@@ -61,11 +61,11 @@ public class TriggerEntity {
         this.ACCEPTWAY = ACCEPTWAY;
     }
 
-    public int getPID() {
+    public Integer getPID() {
         return PID;
     }
 
-    public void setPID(int PID) {
+    public void setPID(Integer PID) {
         this.PID = PID;
     }
 }

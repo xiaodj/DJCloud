@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.djweb.dao.ITriggerDAO">
+    <!-- 添加触发器 -->
+    <insert id="insert" parameterType="com.djweb.entity.TriggerEntity">
+        INSERT INTO djc_attr_trigger(TRIGNAME, CONTROLAREA, ATTRNAME, TRIGCONDITION, ACCEPTWAY, PID)
+        VALUES(#{TRIGNAME}, #{CONTROLAREA}, #{ATTRNAME},#{TRIGCONDITION}, #{ACCEPTWAY}, #{PID});
+    </insert>
+    <!-- 删除触发器 -->
+    <delete id="deleteByTID">
+        DELETE FROM djc_attr_trigger WHERE TID = #{TID};
+    </delete>
+    <!--<update id="update" parameterType="com.djweb.entity.UserEntity">
+        UPDATE djc_user SET PASSWORD = #{PASSWORD} WHERE USERNAME = #{USERNAME};
+    </update>-->
+
+    <!-- 查询用户信息 -->
+    <select id="selectByPID" resultType="com.djweb.entity.TriggerEntity">
+        SELECT * FROM djc_attr_trigger WHERE PID = #{PID};
+    </select>
+</mapper>

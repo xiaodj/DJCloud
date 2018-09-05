@@ -1,6 +1,7 @@
 package com.djweb.service;
 
 import com.djweb.dto.MsgDTO;
+import com.djweb.dto.ProductInfoDTO;
 import com.djweb.dto.ProductsInfoDTO;
 
 import java.util.Map;
@@ -10,9 +11,15 @@ import java.util.Map;
  */
 public interface IProductService {
 
-    //获取产品信息
-    public ProductsInfoDTO getProductsInfo(int uid);
-
     //创建产品
     public MsgDTO createProduct(Map<String, String> var);
+
+    //删除产品
+    public MsgDTO deleteProduct(String pid);
+
+    //获取所有产品信息
+    public ProductsInfoDTO getProductsInfo(String uid);
+
+    //获取产品详细信息
+    public ProductInfoDTO getProductInfo(String pid);
 }
