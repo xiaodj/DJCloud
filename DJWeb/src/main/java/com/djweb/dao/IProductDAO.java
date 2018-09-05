@@ -14,4 +14,6 @@ public interface IProductDAO{
     public boolean update(ProductEntity productEntity);
     //查询产品信息
     public List<ProductEntity> selectByUID(int uid);
+    //查询某个产品信息
+    public ProductEntity selectByPID(int pid);
 }
