@@ -54,8 +54,8 @@ public class ProductAction {
     /**
      * 查询用户某一个产品的详细信息
      */
-    @RequestMapping(value = "/products/{did}", method = RequestMethod.GET)
-    public @ResponseBody MsgDTO getProductInfo(@PathVariable("did") String did){
+    @RequestMapping(value = "/products/{pid}", method = RequestMethod.GET)
+    public @ResponseBody MsgDTO getProductInfo(@PathVariable("pid") String pid){
 
         return msgDTO;
     }

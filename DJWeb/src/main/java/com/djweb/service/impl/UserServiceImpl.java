@@ -55,7 +55,7 @@ public class UserServiceImpl implements IUserService{
 
         session.setMaxInactiveInterval(2*60);
         session.setAttribute("login","yes");
-        session.setAttribute("uid",userEntity.getUID());
+        session.setAttribute("uid",String.valueOf(userEntity.getUID()));
 
         return msgDTO;
     }

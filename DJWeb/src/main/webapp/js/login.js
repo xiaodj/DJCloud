@@ -11,6 +11,7 @@ layui.define(['layer','form'],function (exports) {
     });
 
     function fn(msg) {
+
         if (msg == "err"){
             layer.msg("net error");
             return false;
