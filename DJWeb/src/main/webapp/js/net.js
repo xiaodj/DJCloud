@@ -13,7 +13,7 @@ function getUserInfo($, fn) {
             fn("err");
         }
     });
-}
+};
 
 //登陆
 function login($, data, fn) {
@@ -30,7 +30,7 @@ function login($, data, fn) {
             fn("err");
         }
     });
-}
+};
 
 //注册
 function register($, data, fn) {
@@ -62,7 +62,7 @@ function getProductsInfo($, fn) {
             fn("err");
         }
     });
-}
+};
 
 
 //创建产品
@@ -80,4 +80,4 @@ function createProduct($, data, fn) {
             fn("err");
         }
     });
-}
+};

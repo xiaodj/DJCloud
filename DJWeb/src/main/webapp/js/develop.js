@@ -28,35 +28,35 @@ layui.define(['layer','element'],function (exports) {
                 var trEmn = document.createElement("tr");
 
                 var tdEnm = document.createElement("td");
-                var tdText = document.createTextNode("1");
+                var tdText = document.createTextNode(i+1);
                 tdEnm.appendChild(tdText);
                 trEmn.appendChild(tdEnm);
 
                 tdEnm = document.createElement("td");
                 var aEnm = document.createElement("a");
                 aEnm.setAttribute("href", "./manage.html");
-                tdText = document.createTextNode("手环");
+                tdText = document.createTextNode(prodsInfo.pubInfo[i].pnm);
                 aEnm.appendChild(tdText);
                 tdEnm.appendChild(aEnm);
                 trEmn.appendChild(tdEnm);
 
                 tdEnm = document.createElement("td");
-                tdText = document.createTextNode("穿戴设备");
+                tdText = document.createTextNode(prodsInfo.pubInfo[i].pindu);
                 tdEnm.appendChild(tdText);
                 trEmn.appendChild(tdEnm);
 
                 tdEnm = document.createElement("td");
-                tdText = document.createTextNode("MQTT");
+                tdText = document.createTextNode(prodsInfo.pubInfo[i].accprot);
                 tdEnm.appendChild(tdText);
                 trEmn.appendChild(tdEnm);
 
                 tdEnm = document.createElement("td");
-                tdText = document.createTextNode("2018-09-01 22:40:12");
+                tdText = document.createTextNode(prodsInfo.pubInfo[i].ctTime);
                 tdEnm.appendChild(tdText);
                 trEmn.appendChild(tdEnm);
 
                 tdEnm = document.createElement("td");
-                tdText = document.createTextNode("0");
+                tdText = document.createTextNode(prodsInfo.pubInfo[i].devCount);
                 tdEnm.appendChild(tdText);
                 trEmn.appendChild(tdEnm);
 
@@ -82,34 +82,35 @@ layui.define(['layer','element'],function (exports) {
                 var trEmn = document.createElement("tr");
 
                 var tdEnm = document.createElement("td");
-                var tdText = document.createTextNode("1");
+                var tdText = document.createTextNode(j+1);
                 tdEnm.appendChild(tdText);
                 trEmn.appendChild(tdEnm);
 
                 tdEnm = document.createElement("td");
                 var aEnm = document.createElement("a");
-                tdText = document.createTextNode("手环");
+                aEnm.setAttribute("href", "./manage.html");
+                tdText = document.createTextNode(prodsInfo.priInfo[j].pnm);
                 aEnm.appendChild(tdText);
                 tdEnm.appendChild(aEnm);
                 trEmn.appendChild(tdEnm);
 
                 tdEnm = document.createElement("td");
-                tdText = document.createTextNode("穿戴设备");
+                tdText = document.createTextNode(prodsInfo.priInfo[j].pindu);
                 tdEnm.appendChild(tdText);
                 trEmn.appendChild(tdEnm);
 
                 tdEnm = document.createElement("td");
-                tdText = document.createTextNode("MQTT");
+                tdText = document.createTextNode(prodsInfo.priInfo[j].accprot);
                 tdEnm.appendChild(tdText);
                 trEmn.appendChild(tdEnm);
 
                 tdEnm = document.createElement("td");
-                tdText = document.createTextNode("2018-09-01 22:40:12");
+                tdText = document.createTextNode(prodsInfo.priInfo[j].ctTime);
                 tdEnm.appendChild(tdText);
                 trEmn.appendChild(tdEnm);
 
                 tdEnm = document.createElement("td");
-                tdText = document.createTextNode("0");
+                tdText = document.createTextNode(prodsInfo.priInfo[j].devCount);
                 tdEnm.appendChild(tdText);
                 trEmn.appendChild(tdEnm);
 
