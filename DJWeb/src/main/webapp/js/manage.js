@@ -10,7 +10,6 @@ layui.define(['layer','element'],function (exports) {
     prodInstrModle();
     element.on('nav(manage)', function (data) {
         if (data.text() == "产品概况"){
-
             prodInstrModle(data);
         }else if (data.text() == "设备管理"){
             devMng(data);
@@ -298,8 +297,20 @@ layui.define(['layer','element'],function (exports) {
         divcdEnm.className = "layui-card";
         var divhdEnm = document.createElement("div");
         divhdEnm.className = "layui-card-header";
+        var divtdEnm = document.createElement("div");
+        divtdEnm.className = "layui-col-md11";
         var divhdText = document.createTextNode("触发器数量：2个");
-        divhdEnm.appendChild(divhdText);
+        divtdEnm.appendChild(divhdText);
+        divhdEnm.appendChild(divtdEnm);
+        divtdEnm = document.createElement("div");
+        divtdEnm.className = "layui-col-md1";
+        var btEnm = document.createElement("button");
+        btEnm.className = "layui-btn layui-btn-sm";
+        var tdText = document.createTextNode("添加触发器");
+        btEnm.appendChild(tdText);
+        divtdEnm.appendChild(btEnm);
+        divhdEnm.appendChild(divtdEnm);
+
         divcdEnm.appendChild(divhdEnm);
         var divbdEnm = document.createElement("div");
         divbdEnm.className = "layui-card-body";

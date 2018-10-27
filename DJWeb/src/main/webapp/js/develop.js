@@ -61,16 +61,23 @@ layui.define(['layer','element'],function (exports) {
                 trEmn.appendChild(tdEnm);
 
                 tdEnm = document.createElement("td");
+                var divEnm = document.createElement("div");
+                divEnm.setAttribute("class", "layui-btn-group");
                 var btEnm = document.createElement("button");
+                btEnm.setAttribute("class", "layui-btn layui-btn-sm");
+                //var iEnm = document.createElement("i");
+                //iEnm.setAttribute("class", "layui-icon-edit");
                 tdText = document.createTextNode("编辑");
                 btEnm.appendChild(tdText);
-                tdEnm.appendChild(btEnm);
+                divEnm.appendChild(btEnm);
 
                 btEnm = document.createElement("button");
+                btEnm.setAttribute("class", "layui-btn layui-btn-sm");
                 tdText = document.createTextNode("删除");
                 btEnm.appendChild(tdText);
-                tdEnm.appendChild(btEnm);
+                divEnm.appendChild(btEnm);
 
+                tdEnm.appendChild(divEnm);
                 trEmn.appendChild(tdEnm);
 
                 htmlID.appendChild(trEmn);
@@ -115,16 +122,23 @@ layui.define(['layer','element'],function (exports) {
                 trEmn.appendChild(tdEnm);
 
                 tdEnm = document.createElement("td");
+                var divEnm = document.createElement("div");
+                divEnm.setAttribute("class", "layui-btn-group");
                 var btEnm = document.createElement("button");
+                btEnm.setAttribute("class", "layui-btn layui-btn-sm");
+                //var iEnm = document.createElement("i");
+                //iEnm.setAttribute("class", "layui-icon-edit");
                 tdText = document.createTextNode("编辑");
                 btEnm.appendChild(tdText);
-                tdEnm.appendChild(btEnm);
+                divEnm.appendChild(btEnm);
 
                 btEnm = document.createElement("button");
+                btEnm.setAttribute("class", "layui-btn layui-btn-sm");
                 tdText = document.createTextNode("删除");
                 btEnm.appendChild(tdText);
-                tdEnm.appendChild(btEnm);
+                divEnm.appendChild(btEnm);
 
+                tdEnm.appendChild(divEnm);
                 trEmn.appendChild(tdEnm);
 
                 htmlID.appendChild(trEmn);
