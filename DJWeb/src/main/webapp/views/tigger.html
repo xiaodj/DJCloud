@@ -3,8 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <title>触发器信息</title>
+    <link rel="stylesheet" href="../css/djweb.min.css">
+    <link rel="stylesheet" href="../lib/layui/css/layui.css">
+    <script src="../js/net.js"></script>
+    <script src="../lib/layui/layui.js"></script>
+    <script>
+        layui.config({
+            base:'../js/'
+        }).use('product');
+    </script>
 </head>
 <body>
-
+<div class="layui-layout layui-layout-admin webhead">
+    <div class="layui-header">
+        <a href="index.html"><div class="layui-logo">DJ 云平台</div></a>
+        <ul class="layui-nav layui-layout-left">
+            <li class="layui-nav-item"><a href="../index.html">首页</a></li>
+        </ul>
+        <ul id="login_in" class="layui-nav layui-layout-right">
+            <li class="layui-nav-item"><a href="develop.html">开发者中心</a></li>
+            <li class="layui-nav-item"><a href="">消息<span class="layui-badge">9</span></a></li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">
+                    <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+                    <b id="username"></b>
+                </a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">基本资料</a></dd>
+                    <dd><a href="">安全设置</a></dd>
+                    <dd><a href="">退出账号</a></dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="webui-tab">
+    <div class="layui-tab layui-tab-card" style="background-color: #ffffff">
+        <ul class="layui-tab-title">
+            <li class="layui-this"><a>添加触发器</a></li>
+        </ul>
+        <div class="product-creat">
+            <div class="layui-tab-content" style="margin: auto;">
+                <div class="layui-tab-item layui-show">
+                    <form class="layui-form" action="">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">触发器名称</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="pnm" required  lay-verify="required" placeholder="最多输入16个字符" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">控制范围</label>
+                            <div class="layui-input-block">
+                                <div class="layui-col-xs9">
+                                    <input type="text" name="pnm" required  lay-verify="required" placeholder="最多输入16个字符" autocomplete="off" class="layui-input">
+                                </div>
+                                <div class="layui-col-xs2 layui-col-xs-offset1">
+                                    <input name="mobile" title="全部设备" type="checkbox" lay-skin="primary">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">数据流名称</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="pnm" required  lay-verify="required" placeholder="最多输入16个字符" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">触发条件</label>
+                            <div class="layui-input-block">
+                                <div class="layui-col-xs2">
+                                    <div class="layui-input-inline">
+                                        <select name="pcate">
+                                            <option value="请选择">&gt;</option>
+                                            <option value="家用电器">&gt;=</option>
+                                            <option value="办公设备">&lt;</option>
+                                            <option value="穿戴钟表">&lt;=</option>
+                                            <option value="母婴">==</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="layui-col-xs10">
+                                    <input type="text" name="pnm" required  lay-verify="required" placeholder="数据值" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">接收方式</label>
+                            <div class="layui-input-block">
+                                <input type="radio" name="psched" value="邮箱" title="邮箱" checked>
+                                <input type="radio" name="psched" value="URL" title="URL">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">邮箱</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="pnm" required  lay-verify="required" placeholder="最多输入16个字符" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <div class="layui-input-block">
+                                <button class="layui-btn" lay-submit lay-filter="ok">添加触发器</button>
+                                <button class="layui-btn layui-btn-primary" lay-submit lay-filter="cancel">取消</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
