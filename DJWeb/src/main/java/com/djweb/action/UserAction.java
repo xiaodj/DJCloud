@@ -1,6 +1,6 @@
 package com.djweb.action;
 
-import com.djweb.dto.MsgDTO;
+import com.djweb.dto.BaseDto;
 import com.djweb.dto.UserInfoDTO;
 import com.djweb.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,81 +21,38 @@ import java.util.Map;
 public class UserAction {
 
     @Autowired
-    private MsgDTO msgDTO;
-    @Autowired
     private UserInfoDTO userInfoDTO;
     @Autowired
     private IUserService iUser;
 
     /**
-     * 获取用户信息
+     * 用户注册接口
      * @author dengjiang
-     *
      */
-    @RequestMapping(value = "/userinfo", method = RequestMethod.GET)
-    public @ResponseBody UserInfoDTO getUserInfo(HttpSession session){
-        String login = (String)session.getAttribute("login");
-        if (login == null || login.isEmpty() || !login.equals("yes")) {
-            userInfoDTO.setCode(1);
-            userInfoDTO.setUsername("");
-        } else {
-            String uid = (String)session.getAttribute("uid");
-            //用户ID
-            userInfoDTO = iUser.getUserInfo(uid);
-        }
-
-        return userInfoDTO;
+    @RequestMapping(value = "/user/register", method = RequestMethod.POST)
+    public @ResponseBody BaseDto register(@RequestBody Map<String, String> param){
+        return iUser.register(param);
     }
 
     /**
-     *  登录
+     * 用户登录接口
      * @author dengjiang
      */
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public @ResponseBody MsgDTO login(@RequestBody Map<String, String> param, HttpSession session){
-
-        msgDTO = iUser.login(param, session);
-        return msgDTO;
+    @RequestMapping(value = "/user/login", method = RequestMethod.POST)
+    public @ResponseBody BaseDto login(@RequestBody Map<String, String> param){
+        BaseDto baseDto = new BaseDto();
+        baseDto = iUser.login(param);
+        return baseDto;
     }
 
     /**
-     * 用户注册
+     * 用户退出接口
      * @author dengjiang
      */
-    @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public @ResponseBody MsgDTO register(@RequestBody Map<String, String> map){
-        msgDTO = iUser.register(map);
-        return msgDTO;
-    }
-
-    /**
-     * 用户是否登陆
-     * @author dengjiang
-     */
-    @RequestMapping(value = "/islogin", method = RequestMethod.GET)
-    public @ResponseBody MsgDTO isLogin(HttpSession session){
-        String login = (String)session.getAttribute("login");
-        if (login.equals(null) || login.isEmpty() || login.equals("yes")) {
-            msgDTO.setCode(1);
-        }else {
-            msgDTO.setCode(0);
-        }
-        return msgDTO;
-    }
-
-    /**
-     * 退出登录
-     * @author dengjiang
-     */
-    @RequestMapping(value = "/outlogin", method = RequestMethod.POST)
-    public @ResponseBody MsgDTO outLogin(HttpSession session) {
-        String login = (String)session.getAttribute("login");
-        if (login.equals(null) || login.isEmpty() || login.equals("yes")) {
-            msgDTO.setCode(1);
-        }else {
-            session.invalidate();
-            msgDTO.setCode(0);
-        }
-        return msgDTO;
+    @RequestMapping(value = "/user/quit", method = RequestMethod.POST)
+    public @ResponseBody BaseDto quit(@RequestBody Map<String, String> param){
+        BaseDto baseDto = new BaseDto();
+        baseDto = iUser.login(param);
+        return baseDto;
     }
 }
