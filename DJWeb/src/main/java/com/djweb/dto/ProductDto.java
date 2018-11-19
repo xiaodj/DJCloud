@@ -3,5 +3,5 @@ package com.djweb.dto;
 /**
  * Created by xiaodj on 2018/11/19.
  */
-public class ProductDto {
+public class ProductDto extends BaseDto {
 }

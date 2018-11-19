@@ -1,9 +1,9 @@
 package com.djweb.service.impl;
 
 import com.djweb.dao.IDeviceDAO;
-import com.djweb.dto.DeviceInfoDTO;
-import com.djweb.dto.DevicesInfoDTO;
-import com.djweb.dto.MsgDTO;
+import com.djweb.dto.BaseDto;
+import com.djweb.dto.DeviceDto;
+import com.djweb.dto.DevicesDto;
 import com.djweb.entity.DeviceEntity;
 import com.djweb.service.IDeviceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,51 +16,28 @@ import java.util.Map;
 @Service
 public class DeviceServiceImpl implements IDeviceService{
 
-    @Autowired
-    private MsgDTO msgDTO;
-    @Autowired
-    private IDeviceDAO iDevDao;
-    @Autowired
-    private DeviceEntity devEntity;
-    @Autowired
-    private DevicesInfoDTO devsInfoDTO;
-    @Autowired
-    private DeviceInfoDTO devInfoDTO;
-
     @Override
-    public MsgDTO createDevice(Map<String, String> var) {
-
-        String devnm = var.get("devnm");
-        String devtify = var.get("devtify");
-        String devdtsec = var.get("devdtsec");
-        String pid = var.get("pid");
-
-        devEntity.setDEVNAME(devnm);
-        devEntity.setDEVIDENTIFY(devtify);
-        devEntity.setDATASECURITY(devdtsec);
-        devEntity.setPID(Integer.valueOf(pid));
-
-        iDevDao.insert(devEntity);
-
-        return msgDTO;
+    public BaseDto AddDevice(Map<String, String> var) {
+        return null;
     }
 
     @Override
-    public MsgDTO deleteDevice(String did) {
-        iDevDao.deleteByDID(Integer.valueOf(did));
-        return msgDTO;
+    public BaseDto UpdateDevice(Map<String, String> var) {
+        return null;
     }
 
     @Override
-    public DevicesInfoDTO getDevicesInfo(String pid) {
-        List<DeviceEntity> listDevice = new ArrayList<DeviceEntity>();
-        listDevice = iDevDao.selectByPID(Integer.valueOf(pid));
-        return devsInfoDTO;
+    public DeviceDto GetDevice(Integer did) {
+        return null;
     }
 
     @Override
-    public DeviceInfoDTO getDeviceInfo(String did) {
-        devEntity = iDevDao.selectByDID(Integer.valueOf(did));
-        return devInfoDTO;
+    public DevicesDto GetDevices(Integer pid) {
+        return null;
+    }
+
+    @Override
+    public BaseDto DeleteDevice(Integer did) {
+        return null;
     }
 }

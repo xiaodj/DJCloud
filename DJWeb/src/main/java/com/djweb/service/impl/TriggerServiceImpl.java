@@ -16,46 +16,28 @@ import java.util.Map;
 @Service
 public class TriggerServiceImpl implements ITriggerService {
 
-    @Autowired
-    private MsgDTO msgDTO;
-    @Autowired
-    private ITriggerDAO iTrigDao;
-    @Autowired
-    private TriggerEntity trigEntity;
-    @Autowired
-    private TriggersInfoDTO trigsInfoDTO;
-
     @Override
-    public MsgDTO createTrigger(Map<String, String> var) {
-
-        String tggnm = var.get("tggnm");
-        String tggctl = var.get("tggctl");
-        String attrnm = var.get("attrnm");
-        String tggcond = var.get("tggcond");
-        String tggaccept = var.get("tggaccept");
-        String pid = var.get("pid");
-
-        trigEntity.setTRIGNAME(tggnm);
-        trigEntity.setTRIGCONDITION(tggctl);
-        trigEntity.setATTRNAME(attrnm);
-        trigEntity.setTRIGCONDITION(tggcond);
-        trigEntity.setACCEPTWAY(tggaccept);
-        trigEntity.setPID(Integer.valueOf(pid));
-
-        iTrigDao.insert(trigEntity);
-        return msgDTO;
+    public BaseDto AddTrigger(Map<String, String> var) {
+        return null;
     }
 
     @Override
-    public MsgDTO deleteTrigger(String tid) {
-        iTrigDao.deleteByTID(Integer.valueOf(tid));
-        return msgDTO;
+    public BaseDto UpdateTrigger(Map<String, String> var) {
+        return null;
     }
 
     @Override
-    public TriggersInfoDTO getTriggersInfo(String pid) {
-        List<TriggerEntity> listTggs = new ArrayList<TriggerEntity>();
-        listTggs = iTrigDao.selectByPID(Integer.valueOf(pid));
-        return trigsInfoDTO;
+    public TriggerDto GetTrigger(Integer tid) {
+        return null;
+    }
+
+    @Override
+    public TriggersDto GetTriggers(Integer pid) {
+        return null;
+    }
+
+    @Override
+    public BaseDto DeleteTrigger(Integer tid) {
+        return null;
     }
 }

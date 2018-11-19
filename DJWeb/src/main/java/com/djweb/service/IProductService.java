@@ -1,8 +1,8 @@
 package com.djweb.service;
 
-import com.djweb.dto.MsgDTO;
-import com.djweb.dto.ProductInfoDTO;
-import com.djweb.dto.ProductsInfoDTO;
+import com.djweb.dto.BaseDto;
+import com.djweb.dto.ProductDto;
+import com.djweb.dto.ProductsDto;
 
 import java.util.Map;
 
@@ -11,15 +11,18 @@ import java.util.Map;
  */
 public interface IProductService {
 
-    //创建产品
-    public MsgDTO createProduct(Map<String, String> var);
+    //添加产品
+    public BaseDto AddProduct(Map<String, String> var);
 
-    //删除产品
-    public MsgDTO deleteProduct(String pid);
+    //更新产品
+    public BaseDto UpdateProduct(Map<String, String> var);
 
-    //获取所有产品信息
-    public ProductsInfoDTO getProductsInfo(String uid);
+    //查看指定产品信息
+    public ProductDto GetProduct(Integer pid);
 
-    //获取产品详细信息
-    public ProductInfoDTO getProductInfo(String pid);
+    //查看用户下所有产品信息
+    public ProductsDto GetProducts(Integer uid);
+
+    //删除
+    public BaseDto DeleteProduct(Integer pid);
 }

@@ -2,9 +2,7 @@ package com.djweb.service;
 
 import com.djweb.dto.BaseDto;
 import com.djweb.dto.LoginDto;
-import com.djweb.dto.UserInfoDTO;
 
-import javax.servlet.http.HttpSession;
 import java.util.Map;
 
 /**

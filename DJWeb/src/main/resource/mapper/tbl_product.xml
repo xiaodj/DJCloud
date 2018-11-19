@@ -3,21 +3,21 @@
 <mapper namespace="com.djweb.dao.IProductDAO">
     <!-- 增加产品 -->
     <insert id="insert" parameterType="com.djweb.entity.ProductEntity">
-        INSERT INTO djc_product(PRODNAME, PRODINDUSTRY, PRODCATEGORY, PRODSCHEDULE, PRODINTRODUCE,
+        INSERT INTO TBL_PRODUCT(PRODNAME, PRODINDUSTRY, PRODCATEGORY, PRODSCHEDULE, PRODINTRODUCE,
          OS, MOBILE, TELECOM, UNICOM, OTHER, ACCESSWAY, NETWAY, MODUSELECT, ACCPROTOCOL)
         VALUES(#{PRODNAME}, #{PRODINDUSTRY}, #{PRODCATEGORY}, #{PRODSCHEDULE}, #{PRODINTRODUCE}, #{OS},
          #{MOBILE}, #{TELECOM}, #{UNICOM}, #{OTHER}, #{ACCESSWAY}, #{NETWAY}, #{MODUSELECT}, #{ACCPROTOCOL});
     </insert>
     <!-- 删除产品 -->
     <delete id="deleteByPID">
-        DELETE FROM djc_product WHERE PID = #{PID};
+        DELETE FROM TBL_PRODUCT WHERE PID = #{PID};
     </delete>
     <!-- 查询产品信息 -->
     <select id="selectByUID" resultType="com.djweb.entity.ProductEntity">
-        SELECT * FROM djc_product WHERE UID = #{UID};
+        SELECT * FROM TBL_PRODUCT WHERE UID = #{UID};
     </select>
     <!-- 查询产品详细信息 -->
     <select id="selectByPID" resultType="com.djweb.entity.ProductEntity">
-        SELECT * FROM djc_product WHERE PID = #{PID};
+        SELECT * FROM TBL_PRODUCT WHERE PID = #{PID};
     </select>
 </mapper>

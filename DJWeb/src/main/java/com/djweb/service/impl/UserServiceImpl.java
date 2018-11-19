@@ -1,18 +1,13 @@
 package com.djweb.service.impl;
 
-import com.djweb.dao.IUserDAO;
 import com.djweb.dto.BaseDto;
 import com.djweb.dto.LoginDto;
-import com.djweb.dto.UserInfoDTO;
 import com.djweb.entity.UserEntity;
 import com.djweb.service.IUserService;
 import com.djweb.service.db.IUserDB;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -22,8 +17,6 @@ import java.util.Map;
 @Service
 public class UserServiceImpl implements IUserService{
 
-    @Autowired
-    private UserEntity userEntity;
     @Autowired
     private IUserDB iUserDB;
 
@@ -37,9 +30,9 @@ public class UserServiceImpl implements IUserService{
     public BaseDto register(Map<String, String> var) {
         BaseDto baseDto = new BaseDto();
 
-        String nickname = var.get("NickName");
         String username = var.get("UserName");
         String password = var.get("PassWord");
+        String nickname = var.get("NickName");
 
         if (nickname.isEmpty() || username.isEmpty() || password.isEmpty()){
             baseDto.setCode(1);
@@ -48,11 +41,26 @@ public class UserServiceImpl implements IUserService{
         }
 
         //检查昵称是否已经存在
+        if(iUserDB.IsExistOfUserName(username)){
+            baseDto.setCode(1);
+            baseDto.setMessage("用户名已存在");
+            return baseDto;
+        }
 
+        UserEntity userEntity = new UserEntity();
+        userEntity.setUSERNAME(username);
+        userEntity.setPASSWORD(password);
+        userEntity.setNICKNAME(nickname);
 
-        //
-
-        return baseDto;
+        if (!iUserDB.AddUser(userEntity)){
+            baseDto.setCode(1);
+            baseDto.setMessage("用户注册失败");
+            return baseDto;
+        }else {
+            baseDto.setCode(0);
+            baseDto.setMessage("用户注册成功");
+            return baseDto;
+        }
     }
 
     @Override
@@ -69,23 +77,27 @@ public class UserServiceImpl implements IUserService{
         }
 
         //查询用户
+        UserEntity userEntity = iUserDB.GetUserByUserName(username);
+        if (userEntity == null){
+            loginDto.setCode(1);
+            loginDto.setMessage("该用户不存在");
+            return loginDto;
+        }
 
-        return loginDto;
+        if (!userEntity.getPASSWORD().equals(password)){
+            loginDto.setCode(1);
+            loginDto.setMessage("用户名与密码不匹配");
+            return loginDto;
+        }else {
+            loginDto.setCode(0);
+            loginDto.setMessage("登录成功");
+            loginDto.setUID(userEntity.getUID());
+            return loginDto;
+        }
     }
 
     @Override
-    public BaseDto quit(Map<String, Integer> var){
-        BaseDto baseDto = new BaseDto();
-
-        Integer uid = var.get("UID");
-        if (uid <= 0){
-            baseDto.setCode(1);
-            baseDto.setMessage("无效的用户编码");
-            return baseDto;
-        }
-
-        //退出
-
-        return baseDto;
+    public BaseDto quit(Map<String, Integer> var) {
+        return null;
     }
 }

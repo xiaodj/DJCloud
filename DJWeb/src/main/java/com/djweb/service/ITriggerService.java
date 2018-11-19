@@ -1,18 +1,25 @@
 package com.djweb.service;
 
-import com.djweb.dto.MsgDTO;
-import com.djweb.dto.TriggersInfoDTO;
+import com.djweb.dto.BaseDto;
+import com.djweb.dto.TriggerDto;
+import com.djweb.dto.TriggersDto;
 
 import java.util.Map;
 
 public interface ITriggerService {
 
-    //创建产品触发器
-    public MsgDTO createTrigger(Map<String, String> var);
+    //添加触发器
+    public BaseDto AddTrigger(Map<String, String> var);
 
-    //删除产品触发器
-    public MsgDTO deleteTrigger(String tid);
+    //更新触发器
+    public BaseDto UpdateTrigger(Map<String, String> var);
 
-    //获取所有产品触发器信息
-    public TriggersInfoDTO getTriggersInfo(String pid);
+    //查看指定触发器信息
+    public TriggerDto GetTrigger(Integer tid);
+
+    //查看产品下所有触发器信息
+    public TriggersDto GetTriggers(Integer pid);
+
+    //删除触发器
+    public BaseDto DeleteTrigger(Integer tid);
 }

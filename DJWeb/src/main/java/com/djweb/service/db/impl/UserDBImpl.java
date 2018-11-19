@@ -13,17 +13,26 @@ public class UserDBImpl implements IUserDB {
     private IUserDAO iUserDao;
 
     @Override
-    public boolean IsExistByUid(Integer uid) {
-        return false;
+    public boolean IsExistOfUserName(String username) {
+        UserEntity userEntity = iUserDao.selectByUserName(username);
+        if (userEntity == null)
+            return false;
+        else
+            return true;
     }
 
     @Override
     public UserEntity GetUserByUid(Integer uid) {
-        return null;
+        return iUserDao.selectByUID(uid);
     }
 
     @Override
-    public void AddUser(UserEntity userEntity) {
+    public UserEntity GetUserByUserName(String username) {
+        return iUserDao.selectByUserName(username);
+    }
 
+    @Override
+    public boolean AddUser(UserEntity userEntity) {
+        return iUserDao.insert(userEntity);
     }
 }

@@ -12,14 +12,12 @@ import java.util.List;
 
 @Repository
 public interface IUserDAO{
-    //增
+    //增加用户
     public boolean insert(UserEntity userEntity);
     //根据用户ID删除用户
     public boolean deleteByUID(Integer uid);
-    //根据用户名删除用户
-    public boolean deleteByName(String username);
-    //根据用户名查询用户信息
-    public UserEntity selectByName(String username);
     //根据用户ID查询用户信息
     public UserEntity selectByUID(Integer uid);
+    //判断用户是否存在
+    public UserEntity selectByUserName(String username);
 }

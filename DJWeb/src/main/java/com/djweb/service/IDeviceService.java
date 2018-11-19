@@ -6,15 +6,18 @@ import java.util.Map;
 
 public interface IDeviceService {
 
-    //创建产品设备
-    public MsgDTO createDevice(Map<String, String> var);
+    //添加设备
+    public BaseDto AddDevice(Map<String, String> var);
 
-    //删除产品设备
-    public MsgDTO deleteDevice(String did);
+    //更新设备
+    public BaseDto UpdateDevice(Map<String, String> var);
 
-    //获取所有产品设备信息
-    public DevicesInfoDTO getDevicesInfo(String pid);
+    //查看指定设备信息
+    public DeviceDto GetDevice(Integer did);
 
-    //获取产品设备详细信息
-    public DeviceInfoDTO getDeviceInfo(String did);
+    //查看产品下所有设备信息
+    public DevicesDto GetDevices(Integer pid);
+
+    //删除设备
+    public BaseDto DeleteDevice(Integer did);
 }

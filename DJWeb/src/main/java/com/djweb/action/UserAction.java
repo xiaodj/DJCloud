@@ -1,7 +1,6 @@
 package com.djweb.action;
 
-import com.djweb.dto.MsgDTO;
-import com.djweb.dto.UserInfoDTO;
+import com.djweb.dto.BaseDto;
 import com.djweb.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpSession;
 import java.util.Map;
 
 /**
@@ -21,8 +19,6 @@ import java.util.Map;
 public class UserAction {
 
     @Autowired
-    private UserInfoDTO userInfoDTO;
-    @Autowired
     private IUserService iUser;
 
     /**
@@ -30,7 +26,8 @@ public class UserAction {
      * @author dengjiang
      */
     @RequestMapping(value = "/user/register", method = RequestMethod.POST)
-    public @ResponseBody BaseDto register(@RequestBody Map<String, String> param){
+    public @ResponseBody
+    BaseDto register(@RequestBody Map<String, String> param){
         return iUser.register(param);
     }
 
@@ -40,9 +37,7 @@ public class UserAction {
      */
     @RequestMapping(value = "/user/login", method = RequestMethod.POST)
     public @ResponseBody BaseDto login(@RequestBody Map<String, String> param){
-        BaseDto baseDto = new BaseDto();
-        baseDto = iUser.login(param);
-        return baseDto;
+        return iUser.login(param);
     }
 
     /**
@@ -50,9 +45,7 @@ public class UserAction {
      * @author dengjiang
      */
     @RequestMapping(value = "/user/quit", method = RequestMethod.POST)
-    public @ResponseBody BaseDto quit(@RequestBody Map<String, String> param){
-        BaseDto baseDto = new BaseDto();
-        baseDto = iUser.login(param);
-        return baseDto;
+    public @ResponseBody BaseDto quit(@RequestBody Map<String, Integer> param){
+        return iUser.quit(param);
     }
 }
