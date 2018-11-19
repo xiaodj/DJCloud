@@ -97,7 +97,7 @@ public class UserServiceImpl implements IUserService{
     }
 
     @Override
-    public BaseDto quit(Map<String, Integer> var) {
+    public BaseDto quit(Integer uid) {
         return null;
     }
 }

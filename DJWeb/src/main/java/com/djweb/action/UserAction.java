@@ -26,8 +26,7 @@ public class UserAction {
      * @author dengjiang
      */
     @RequestMapping(value = "/user/register", method = RequestMethod.POST)
-    public @ResponseBody
-    BaseDto register(@RequestBody Map<String, String> param){
+    public @ResponseBody BaseDto register(@RequestBody Map<String, String> param){
         return iUser.register(param);
     }
 
@@ -44,8 +43,8 @@ public class UserAction {
      * 用户退出接口
      * @author dengjiang
      */
-    @RequestMapping(value = "/user/quit", method = RequestMethod.POST)
-    public @ResponseBody BaseDto quit(@RequestBody Map<String, Integer> param){
-        return iUser.quit(param);
+    @RequestMapping(value = "/user/{uid}/quit", method = RequestMethod.POST)
+    public @ResponseBody BaseDto quit(){
+        return iUser.quit(1);
     }
 }

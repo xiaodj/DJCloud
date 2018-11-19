@@ -15,5 +15,5 @@ public interface IUserService {
     //登陆
     public LoginDto login(Map<String, String> var);
     //退出
-    public BaseDto quit(Map<String, Integer> var);
+    public BaseDto quit(Integer uid);
 }
