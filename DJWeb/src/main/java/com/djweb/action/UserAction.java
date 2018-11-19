@@ -28,6 +28,27 @@ public class UserAction {
     private IUserService iUser;
 
     /**
+     * 用户注册接口
+     * @author dengjiang
+     */
+    @RequestMapping(value = "/user/register", method = RequestMethod.POST)
+    public @ResponseBody MsgDTO register(@RequestBody Map<String, String> map){
+        msgDTO = iUser.register(map);
+        return msgDTO;
+    }
+
+    /**
+     *  用户登录接口
+     * @author dengjiang
+     */
+    @RequestMapping(value = "//login", method = RequestMethod.POST)
+    public @ResponseBody MsgDTO login(@RequestBody Map<String, String> param, HttpSession session){
+
+        msgDTO = iUser.login(param, session);
+        return msgDTO;
+    }
+
+    /**
      * 获取用户信息
      * @author dengjiang
      *
@@ -47,26 +68,8 @@ public class UserAction {
         return userInfoDTO;
     }
 
-    /**
-     *  登录
-     * @author dengjiang
-     */
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public @ResponseBody MsgDTO login(@RequestBody Map<String, String> param, HttpSession session){
 
-        msgDTO = iUser.login(param, session);
-        return msgDTO;
-    }
 
-    /**
-     * 用户注册
-     * @author dengjiang
-     */
-    @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public @ResponseBody MsgDTO register(@RequestBody Map<String, String> map){
-        msgDTO = iUser.register(map);
-        return msgDTO;
-    }
 
     /**
      * 用户是否登陆
@@ -95,7 +98,7 @@ public class UserAction {
         }else {
             session.invalidate();
             msgDTO.setCode(0);
-        }
+        }user
         return msgDTO;
     }
 }
