@@ -1,6 +1,7 @@
 package com.djweb.service;
 
-import com.djweb.dto.MsgDTO;
+import com.djweb.dto.BaseDto;
+import com.djweb.dto.LoginDto;
 import com.djweb.dto.UserInfoDTO;
 
 import javax.servlet.http.HttpSession;
@@ -11,10 +12,10 @@ import java.util.Map;
  */
 public interface IUserService {
 
-    //登陆
-    public MsgDTO login(Map<String, String> var, HttpSession session);
     //注册
-    public MsgDTO register(Map<String, String> var);
-    //获取用户信息
-    public UserInfoDTO getUserInfo(String uid);
+    public BaseDto register(Map<String, String> var);
+    //登陆
+    public LoginDto login(Map<String, String> var);
+    //退出
+    public BaseDto quit(Map<String, Integer> var);
 }

@@ -21,8 +21,6 @@ import java.util.Map;
 public class UserAction {
 
     @Autowired
-    private MsgDTO msgDTO;
-    @Autowired
     private UserInfoDTO userInfoDTO;
     @Autowired
     private IUserService iUser;
@@ -32,73 +30,29 @@ public class UserAction {
      * @author dengjiang
      */
     @RequestMapping(value = "/user/register", method = RequestMethod.POST)
-    public @ResponseBody MsgDTO register(@RequestBody Map<String, String> map){
-        msgDTO = iUser.register(map);
-        return msgDTO;
+    public @ResponseBody BaseDto register(@RequestBody Map<String, String> param){
+        return iUser.register(param);
     }
 
     /**
-     *  用户登录接口
+     * 用户登录接口
      * @author dengjiang
      */
-    @RequestMapping(value = "//login", method = RequestMethod.POST)
-    public @ResponseBody MsgDTO login(@RequestBody Map<String, String> param, HttpSession session){
-
-        msgDTO = iUser.login(param, session);
-        return msgDTO;
+    @RequestMapping(value = "/user/login", method = RequestMethod.POST)
+    public @ResponseBody BaseDto login(@RequestBody Map<String, String> param){
+        BaseDto baseDto = new BaseDto();
+        baseDto = iUser.login(param);
+        return baseDto;
     }
 
     /**
-     * 获取用户信息
-     * @author dengjiang
-     *
-     */
-    @RequestMapping(value = "/userinfo", method = RequestMethod.GET)
-    public @ResponseBody UserInfoDTO getUserInfo(HttpSession session){
-        String login = (String)session.getAttribute("login");
-        if (login == null || login.isEmpty() || !login.equals("yes")) {
-            userInfoDTO.setCode(1);
-            userInfoDTO.setUsername("");
-        } else {
-            String uid = (String)session.getAttribute("uid");
-            //用户ID
-            userInfoDTO = iUser.getUserInfo(uid);
-        }
-
-        return userInfoDTO;
-    }
-
-
-
-
-    /**
-     * 用户是否登陆
+     * 用户退出接口
      * @author dengjiang
      */
-    @RequestMapping(value = "/islogin", method = RequestMethod.GET)
-    public @ResponseBody MsgDTO isLogin(HttpSession session){
-        String login = (String)session.getAttribute("login");
-        if (login.equals(null) || login.isEmpty() || login.equals("yes")) {
-            msgDTO.setCode(1);
-        }else {
-            msgDTO.setCode(0);
-        }
-        return msgDTO;
-    }
-
-    /**
-     * 退出登录
-     * @author dengjiang
-     */
-    @RequestMapping(value = "/outlogin", method = RequestMethod.POST)
-    public @ResponseBody MsgDTO outLogin(HttpSession session) {
-        String login = (String)session.getAttribute("login");
-        if (login.equals(null) || login.isEmpty() || login.equals("yes")) {
-            msgDTO.setCode(1);
-        }else {
-            session.invalidate();
-            msgDTO.setCode(0);
-        }user
-        return msgDTO;
+    @RequestMapping(value = "/user/quit", method = RequestMethod.POST)
+    public @ResponseBody BaseDto quit(@RequestBody Map<String, String> param){
+        BaseDto baseDto = new BaseDto();
+        baseDto = iUser.login(param);
+        return baseDto;
     }
 }
