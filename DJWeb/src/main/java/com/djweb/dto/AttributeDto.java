@@ -1,8 +1,11 @@
 package com.djweb.dto;
 
+import org.springframework.stereotype.Component;
+
 /**
  * Created by xiaodj on 2018/11/19.
  */
+@Component
 public class AttributeDto extends BaseDto {
     private String AttrName;    //属性名称
     private String UnitName;	//单位名称

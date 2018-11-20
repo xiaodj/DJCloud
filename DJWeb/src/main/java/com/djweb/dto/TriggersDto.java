@@ -1,18 +1,21 @@
 package com.djweb.dto;
 
-import java.util.ArrayList;
+import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 /**
  * Created by xiaodj on 2018/11/19.
  */
+@Component
 public class TriggersDto extends BaseDto {
-    private ArrayList<TriggerInfo> Triggers;
+    private List<TriggerInfo> Triggers;
 
-    public ArrayList<TriggerInfo> getTriggers() {
+    public List<TriggerInfo> getTriggers() {
         return Triggers;
     }
 
-    public void setTriggers(ArrayList<TriggerInfo> triggers) {
+    public void setTriggers(List<TriggerInfo> triggers) {
         Triggers = triggers;
     }
 }

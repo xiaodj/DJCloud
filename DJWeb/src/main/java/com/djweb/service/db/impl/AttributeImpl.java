@@ -1,7 +1,9 @@
 package com.djweb.service.db.impl;
 
+import com.djweb.dao.IAttributeDAO;
 import com.djweb.entity.AttributeEntity;
 import com.djweb.service.db.IAttributeDB;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
@@ -9,6 +11,10 @@ import java.util.List;
  * Created by xiaodj on 2018/11/20.
  */
 public class AttributeImpl implements IAttributeDB {
+
+    @Autowired
+    private IAttributeDAO iAttributeDao;
+
     @Override
     public boolean IsExistOfAttribute(String attrname) {
         return false;

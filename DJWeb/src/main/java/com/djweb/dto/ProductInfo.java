@@ -1,17 +1,20 @@
 package com.djweb.dto;
 
+import org.springframework.stereotype.Component;
+
 /**
  * Created by xiaodj on 2018/11/19.
  */
+@Component
 public class ProductInfo {
     private Integer PID;         //产品ID
     private String PDName;	    //产品名称
     private String PDIndustry;	//产品行业
     private String PDProtocol;	//产品接入协议
     private String PDDateTime;	//产品创建时间
-    private String DevNum;	    //设备接入个数
-    private String TriggNum;	//触发器个数
-    private String ApiKey;		//API KEY
+    private Integer DevNum;	    //设备接入个数
+    private Integer TriggNum;	//触发器个数
+    private String PDKey;		//产品密钥
 
     public Integer getPID() {
         return PID;
@@ -53,27 +56,27 @@ public class ProductInfo {
         this.PDDateTime = PDDateTime;
     }
 
-    public String getDevNum() {
+    public Integer getDevNum() {
         return DevNum;
     }
 
-    public void setDevNum(String devNum) {
+    public void setDevNum(Integer devNum) {
         DevNum = devNum;
     }
 
-    public String getTriggNum() {
+    public Integer getTriggNum() {
         return TriggNum;
     }
 
-    public void setTriggNum(String triggNum) {
+    public void setTriggNum(Integer triggNum) {
         TriggNum = triggNum;
     }
 
-    public String getApiKey() {
-        return ApiKey;
+    public String getPDKey() {
+        return PDKey;
     }
 
-    public void setApiKey(String apiKey) {
-        ApiKey = apiKey;
+    public void setPDKey(String PDKey) {
+        this.PDKey = PDKey;
     }
 }

@@ -1,7 +1,9 @@
 package com.djweb.service.db.impl;
 
+import com.djweb.dao.IProductDAO;
 import com.djweb.entity.ProductEntity;
 import com.djweb.service.db.IProductDB;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
@@ -9,6 +11,10 @@ import java.util.List;
  * Created by xiaodj on 2018/11/20.
  */
 public class ProductImpl implements IProductDB {
+
+    @Autowired
+    private IProductDAO iProductDao;
+
     @Override
     public boolean IsExistOfProduct(String pdname) {
         return false;
@@ -25,7 +31,7 @@ public class ProductImpl implements IProductDB {
     }
 
     @Override
-    public ProductEntity GetProductByPID(Integer tid) {
+    public ProductEntity GetProductByPID(Integer pid) {
         return null;
     }
 
@@ -35,7 +41,17 @@ public class ProductImpl implements IProductDB {
     }
 
     @Override
-    public boolean DeleteProductByPID(Integer tid) {
+    public boolean DeleteProductByPID(Integer pid) {
         return false;
+    }
+
+    @Override
+    public Integer GetDeviceNumByPID(Integer pid) {
+        return null;
+    }
+
+    @Override
+    public Integer GetTriggerNumByPID(Integer pid) {
+        return null;
     }
 }

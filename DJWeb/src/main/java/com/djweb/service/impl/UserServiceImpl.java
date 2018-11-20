@@ -20,6 +20,11 @@ public class UserServiceImpl implements IUserService{
     @Autowired
     private IUserDB iUserDB;
 
+    @Autowired
+    private BaseDto baseDto;
+    @Autowired
+    private LoginDto loginDto;
+
     /**
      * 用户注册
      * @author dengjiang
@@ -28,7 +33,7 @@ public class UserServiceImpl implements IUserService{
      */
     @Override
     public BaseDto register(Map<String, String> var) {
-        BaseDto baseDto = new BaseDto();
+        //BaseDto baseDto = new BaseDto();
 
         String username = var.get("UserName");
         String password = var.get("PassWord");
@@ -65,7 +70,7 @@ public class UserServiceImpl implements IUserService{
 
     @Override
     public LoginDto login(Map<String, String> var) {
-        LoginDto loginDto = new LoginDto();
+        //LoginDto loginDto = new LoginDto();
 
         String username = var.get("UserName");
         String password = var.get("PassWord");
@@ -98,6 +103,6 @@ public class UserServiceImpl implements IUserService{
 
     @Override
     public BaseDto quit(Integer uid) {
-        return null;
+        return baseDto;
     }
 }

@@ -11,6 +11,9 @@ import java.util.Map;
 @Controller
 public class AttributeAction {
 
+    @Autowired
+    private IAttributeService iAttribute;
+
     /**
      * 增加属性接口
      * @author dengjiang

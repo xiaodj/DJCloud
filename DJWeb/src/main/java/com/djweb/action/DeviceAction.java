@@ -11,6 +11,9 @@ import java.util.Map;
 @Controller
 public class DeviceAction {
 
+    @Autowired
+    private IDeviceService iDevice;
+
     /**
      * 增加设备接口
      * @author dengjiang

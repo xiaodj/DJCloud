@@ -1,11 +1,15 @@
 package com.djweb.dto;
 
+import org.springframework.stereotype.Component;
+
 /**
  * Created by xiaodj on 2018/11/19.
  */
+@Component
 public class TriggerDto extends BaseDto {
     private String TrigName;	//触发器名称
     private String AttrName;	//属性名称
+    private String ControlRange;    //控制范围
     private String TrigSymbol;	//触发条件符号
     private String TrigValue;	//触发条件值
     private String MsgAccess;	//接受信息方式
@@ -25,6 +29,14 @@ public class TriggerDto extends BaseDto {
 
     public void setAttrName(String attrName) {
         AttrName = attrName;
+    }
+
+    public String getControlRange() {
+        return ControlRange;
+    }
+
+    public void setControlRange(String controlRange) {
+        ControlRange = controlRange;
     }
 
     public String getTrigSymbol() {

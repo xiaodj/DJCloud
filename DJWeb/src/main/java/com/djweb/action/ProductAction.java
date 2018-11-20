@@ -17,6 +17,9 @@ import java.util.Map;
 @Controller
 public class ProductAction {
 
+    @Autowired
+    private IProductService iProduct;
+
     /**
      * 增加新产品接口
      * @author dengjiang

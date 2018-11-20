@@ -11,6 +11,9 @@ import java.util.Map;
 @Controller
 public class TriggerAction {
 
+    @Autowired
+    private ITriggerService iTrigger;
+
     /**
      * 增加触发器接口
      * @author dengjiang

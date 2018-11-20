@@ -4,28 +4,18 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class AttributeEntity {
-    private Integer TID;	//触发器编码
-    private String  TRIGNAME;	//触发器名称
+    private Integer AID;	//属性编码
     private String  ATTRNAME;	//属性名称
-    private String  TRIGSYMBOL;	//触发条件符号
-    private String  TRIGVALUE;	//触发条件值
-    private String  MSGACCESS;	//接受信息方式
+    private String  UNITNAME;	//单位名称
+    private String  UNITSYMBOL;	//单位符号
     private Integer PID;	//产品编码
 
-    public Integer getTID() {
-        return TID;
+    public Integer getAID() {
+        return AID;
     }
 
-    public void setTID(Integer TID) {
-        this.TID = TID;
-    }
-
-    public String getTRIGNAME() {
-        return TRIGNAME;
-    }
-
-    public void setTRIGNAME(String TRIGNAME) {
-        this.TRIGNAME = TRIGNAME;
+    public void setAID(Integer AID) {
+        this.AID = AID;
     }
 
     public String getATTRNAME() {
@@ -36,28 +26,20 @@ public class AttributeEntity {
         this.ATTRNAME = ATTRNAME;
     }
 
-    public String getTRIGSYMBOL() {
-        return TRIGSYMBOL;
+    public String getUNITNAME() {
+        return UNITNAME;
     }
 
-    public void setTRIGSYMBOL(String TRIGSYMBOL) {
-        this.TRIGSYMBOL = TRIGSYMBOL;
+    public void setUNITNAME(String UNITNAME) {
+        this.UNITNAME = UNITNAME;
     }
 
-    public String getTRIGVALUE() {
-        return TRIGVALUE;
+    public String getUNITSYMBOL() {
+        return UNITSYMBOL;
     }
 
-    public void setTRIGVALUE(String TRIGVALUE) {
-        this.TRIGVALUE = TRIGVALUE;
-    }
-
-    public String getMSGACCESS() {
-        return MSGACCESS;
-    }
-
-    public void setMSGACCESS(String MSGACCESS) {
-        this.MSGACCESS = MSGACCESS;
+    public void setUNITSYMBOL(String UNITSYMBOL) {
+        this.UNITSYMBOL = UNITSYMBOL;
     }
 
     public Integer getPID() {

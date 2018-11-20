@@ -15,9 +15,14 @@ public interface IProductDB {
     //修改产品信息
     public boolean UpdateProductByPID(ProductEntity product);
     //根据产品编码获取产品信息
-    public ProductEntity GetProductByPID(Integer tid);
+    public ProductEntity GetProductByPID(Integer pid);
     //根据用户编码获取产品信息
     public List<ProductEntity> GetProductsByUID(Integer uid);
     //根据产品编码删除产品信息
-    public boolean DeleteProductByPID(Integer tid);
+    public boolean DeleteProductByPID(Integer pid);
+
+    //获取设备个数
+    public Integer GetDeviceNumByPID(Integer pid);
+    //获取触发器个数
+    public Integer GetTriggerNumByPID(Integer pid);
 }

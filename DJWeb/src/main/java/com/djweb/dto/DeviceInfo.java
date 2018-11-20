@@ -1,8 +1,11 @@
 package com.djweb.dto;
 
+import org.springframework.stereotype.Component;
+
 /**
  * Created by xiaodj on 2018/11/19.
  */
+@Component
 public class DeviceInfo {
     private Integer DID;	    //设备ID
     private String  DevName;	//设备名称

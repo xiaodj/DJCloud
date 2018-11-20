@@ -1,29 +1,32 @@
 package com.djweb.dto;
 
-import java.util.ArrayList;
+import org.springframework.stereotype.Component;
+
+import java.util.List;
 import java.util.Map;
 
 /**
  * Created by xiaodj on 2018/11/19.
  */
+@Component
 public class ProductsDto extends BaseDto {
 
-    private ArrayList<ProductInfo> PDPublic;
-    private ArrayList<ProductInfo> PDPrivate;
+    private List<ProductInfo> PDPublic;
+    private List<ProductInfo> PDPrivate;
 
-    public ArrayList<ProductInfo> getPDPublic() {
+    public List<ProductInfo> getPDPublic() {
         return PDPublic;
     }
 
-    public void setPDPublic(ArrayList<ProductInfo> PDPublic) {
+    public void setPDPublic(List<ProductInfo> PDPublic) {
         this.PDPublic = PDPublic;
     }
 
-    public ArrayList<ProductInfo> getPDPrivate() {
+    public List<ProductInfo> getPDPrivate() {
         return PDPrivate;
     }
 
-    public void setPDPrivate(ArrayList<ProductInfo> PDPrivate) {
+    public void setPDPrivate(List<ProductInfo> PDPrivate) {
         this.PDPrivate = PDPrivate;
     }
 }

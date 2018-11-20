@@ -1,8 +1,11 @@
 package com.djweb.dto;
 
+import org.springframework.stereotype.Component;
+
 /**
  * Created by xiaodj on 2018/11/19.
  */
+@Component
 public class ProductDto extends BaseDto {
     private String PDName;      //产品名称
     private String PDIndustry;  //产品行业

@@ -16,6 +16,7 @@ public class ProductEntity {
     private String  PDNETWAY;	//产品联网方式
     private String  PDMODULE;	//产品模组选择
     private String  PDPROTOCOL;	//产品接入协议
+    private String  PDKEY;      //产品密钥
     private String  PDDATETIME;	//产品创建时间
     private Integer UID;	//用户编号
 
@@ -113,6 +114,14 @@ public class ProductEntity {
 
     public void setPDPROTOCOL(String PDPROTOCOL) {
         this.PDPROTOCOL = PDPROTOCOL;
+    }
+
+    public String getPDKEY() {
+        return PDKEY;
+    }
+
+    public void setPDKEY(String PDKEY) {
+        this.PDKEY = PDKEY;
     }
 
     public String getPDDATETIME() {

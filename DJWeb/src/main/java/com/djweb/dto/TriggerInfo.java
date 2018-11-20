@@ -1,8 +1,11 @@
 package com.djweb.dto;
 
+import org.springframework.stereotype.Component;
+
 /**
  * Created by xiaodj on 2018/11/19.
  */
+@Component
 public class TriggerInfo {
     private Integer TID;	        //触发器ID
     private String  TrigName;	    //触发器名称

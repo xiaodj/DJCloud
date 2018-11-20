@@ -1,7 +1,9 @@
 package com.djweb.service.db.impl;
 
+import com.djweb.dao.ITriggerDAO;
 import com.djweb.entity.TriggerEntity;
 import com.djweb.service.db.ITriggerDB;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
@@ -9,6 +11,10 @@ import java.util.List;
  * Created by xiaodj on 2018/11/20.
  */
 public class TriggerImpl implements ITriggerDB {
+
+    @Autowired
+    private ITriggerDAO iTriggerDao;
+
     @Override
     public boolean IsExistOfTrigger(String trigname) {
         return false;
