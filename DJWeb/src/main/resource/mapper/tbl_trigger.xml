@@ -3,19 +3,27 @@
 <mapper namespace="com.djweb.dao.ITriggerDAO">
     <!-- 添加触发器 -->
     <insert id="insert" parameterType="com.djweb.entity.TriggerEntity">
-        INSERT INTO TBL_TRIGGER(TRIGNAME, CONTROLAREA, ATTRNAME, TRIGCONDITION, ACCEPTWAY, PID)
-        VALUES(#{TRIGNAME}, #{CONTROLAREA}, #{ATTRNAME},#{TRIGCONDITION}, #{ACCEPTWAY}, #{PID});
+        <!--INSERT INTO TBL_TRIGGER(TRIGNAME, CONTROLAREA, ATTRNAME, TRIGCONDITION, ACCEPTWAY, PID)
+        VALUES(#{TRIGNAME}, #{CONTROLAREA}, #{ATTRNAME},#{TRIGCONDITION}, #{ACCEPTWAY}, #{PID});-->
     </insert>
-    <!-- 删除触发器 -->
-    <delete id="deleteByTID">
-        DELETE FROM TBL_TRIGGER WHERE TID = #{TID};
-    </delete>
-    <!--<update id="update" parameterType="com.djweb.entity.UserEntity">
-        UPDATE djc_user SET PASSWORD = #{PASSWORD} WHERE USERNAME = #{USERNAME};
-    </update>-->
-
-    <!-- 查询用户信息 -->
+    <!-- 更新触发器信息 -->
+    <update id="update" parameterType="com.djweb.entity.UserEntity">
+        <!--UPDATE TBL_TRIGGER SET PASSWORD = #{PASSWORD} WHERE USERNAME = #{USERNAME};-->
+    </update>
+    <!-- 根据触发器名称获取触发器信息 -->
+    <select id="selectByTrigName" resultType="com.djweb.entity.TriggerEntity">
+        SELECT * FROM TBL_TRIGGER WHERE TRIGNAME = #{trigname};
+    </select>
+    <!-- 根据触发器编码获取触发器信息 -->
+    <select id="selectByTID" resultType="com.djweb.entity.TriggerEntity">
+        SELECT * FROM TBL_TRIGGER WHERE TID = #{tid};
+    </select>
+    <!-- 根据产品编码获取触发器信息 -->
     <select id="selectByPID" resultType="com.djweb.entity.TriggerEntity">
         SELECT * FROM TBL_TRIGGER WHERE PID = #{PID};
     </select>
+    <!-- 删除触发器 -->
+    <delete id="deleteByTID">
+        DELETE FROM TBL_TRIGGER WHERE TID = #{tid};
+    </delete>
 </mapper>

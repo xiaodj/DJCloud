@@ -3,19 +3,27 @@
 <mapper namespace="com.djweb.dao.IAttributeDAO">
     <!-- 添加属性点 -->
     <insert id="insert" parameterType="com.djweb.entity.UserEntity">
-        INSERT INTO TBL_ATTRIBUTE(ATTRENNAME, ATTRCNNAME, UNITNAME, UNITSYMBOL, PID)
-        VALUES(#{ATTRENNAME}, #{ATTRCNNAME}, #{UNITNAME},#{UNITSYMBOL}, #{PID});
+        <!--INSERT INTO TBL_ATTRIBUTE(ATTRENNAME, ATTRCNNAME, UNITNAME, UNITSYMBOL, PID)
+        VALUES(#{ATTRENNAME}, #{ATTRCNNAME}, #{UNITNAME},#{UNITSYMBOL}, #{PID});-->
     </insert>
-    <!-- 根据属性ID删除属性 -->
-    <delete id="deleteByAID">
-        DELETE FROM TBL_ATTRIBUTE WHERE UID = #{UID};
-    </delete>
-    <!--<update id="update" parameterType="com.djweb.entity.UserEntity">
-        UPDATE djc_user SET PASSWORD = #{PASSWORD} WHERE USERNAME = #{USERNAME};
-    </update>-->
-
-    <!-- 根据产品ID查询属性信息 -->
-    <select id="selectByPID" resultType="com.djweb.entity.AttributeEntity">
-        SELECT * FROM TBL_ATTRIBUTE WHERE PID = #{PID};
+    <!-- 更新属性信息 -->
+    <update id="update" parameterType="com.djweb.entity.UserEntity">
+        <!--UPDATE djc_user SET PASSWORD = #{PASSWORD} WHERE USERNAME = #{USERNAME};-->
+    </update>
+    <!-- 根据属性名称获取属性信息 -->
+    <select id="selectByAttrName" resultType="com.djweb.entity.AttributeEntity">
+        SELECT * FROM TBL_ATTRIBUTE WHERE ATTRNAME = #{attrname};
     </select>
+    <!-- 根据属性编码获取属性信息 -->
+    <select id="selectByAID" resultType="com.djweb.entity.AttributeEntity">
+        SELECT * FROM TBL_ATTRIBUTE WHERE AID = #{aid};
+    </select>
+    <!-- 根据产品编码获取属性信息 -->
+    <select id="selectByPID" resultType="com.djweb.entity.AttributeEntity">
+        SELECT * FROM TBL_ATTRIBUTE WHERE PID = #{pid};
+    </select>
+    <!-- 根据属性编码删除属性 -->
+    <delete id="deleteByAID">
+        DELETE FROM TBL_ATTRIBUTE WHERE AID = #{aid};
+    </delete>
 </mapper>

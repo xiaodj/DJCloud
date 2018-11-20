@@ -3,22 +3,27 @@
 <mapper namespace="com.djweb.dao.IDeviceDAO">
     <!-- 添加设备 -->
     <insert id="insert" parameterType="com.djweb.entity.DeviceEntity">
-        INSERT INTO TBL_DEVICE(DEVNAME, DEVIDENTIFY, DATASECURITY, PID)
-        VALUES(#{DEVNAME}, #{DEVIDENTIFY}, #{DATASECURITY},#{PID});
+        <!--INSERT INTO TBL_DEVICE(DEVNAME, DEVIDENTIFY, DATASECURITY, PID)
+        VALUES(#{DEVNAME}, #{DEVIDENTIFY}, #{DATASECURITY},#{PID});-->
     </insert>
+    <!-- 更新设备信息 -->
+    <update id="update" parameterType="com.djweb.entity.UserEntity">
+        <!--UPDATE djc_user SET PASSWORD = #{PASSWORD} WHERE USERNAME = #{USERNAME};-->
+    </update>
+    <!-- 根据设备名称获取设备信息 -->
+    <select id="selectByDevName" resultType="com.djweb.entity.DeviceEntity">
+        SELECT * FROM TBL_DEVICE WHERE DEVNAME = #{devname};
+    </select>
+    <!-- 根据设备编码获取设备信息 -->
+    <select id="selectByDID" resultType="com.djweb.entity.DeviceEntity">
+        SELECT * FROM TBL_DEVICE WHERE DID = #{did};
+    </select>
+    <!-- 根据产品编码查询设备信息 -->
+    <select id="selectByPID" resultType="com.djweb.entity.DeviceEntity">
+        SELECT * FROM TBL_DEVICE WHERE PID = #{pid};
+    </select>
     <!-- 根据设备ID删除设备 -->
     <delete id="deleteByDID">
-        DELETE FROM TBL_DEVICE WHERE DID = #{DID};
+        DELETE FROM TBL_DEVICE WHERE DID = #{did};
     </delete>
-    <!--<update id="update" parameterType="com.djweb.entity.UserEntity">
-        UPDATE djc_user SET PASSWORD = #{PASSWORD} WHERE USERNAME = #{USERNAME};
-    </update>-->
-    <!-- 根据产品ID查询设备信息 -->
-    <select id="selectByPID" resultType="com.djweb.entity.DeviceEntity">
-        SELECT * FROM TBL_DEVICE WHERE PID = #{PID};
-    </select>
-    <!-- 根据设备ID查询设备信息 -->
-    <select id="selectByDID" resultType="com.djweb.entity.DeviceEntity">
-        SELECT * FROM TBL_DEVICE WHERE DID = #{DID};
-    </select>
 </mapper>

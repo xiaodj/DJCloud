@@ -3,21 +3,37 @@
 <mapper namespace="com.djweb.dao.IProductDAO">
     <!-- 增加产品 -->
     <insert id="insert" parameterType="com.djweb.entity.ProductEntity">
-        INSERT INTO TBL_PRODUCT(PRODNAME, PRODINDUSTRY, PRODCATEGORY, PRODSCHEDULE, PRODINTRODUCE,
+        <!--INSERT INTO TBL_PRODUCT(PRODNAME, PRODINDUSTRY, PRODCATEGORY, PRODSCHEDULE, PRODINTRODUCE,
          OS, MOBILE, TELECOM, UNICOM, OTHER, ACCESSWAY, NETWAY, MODUSELECT, ACCPROTOCOL)
         VALUES(#{PRODNAME}, #{PRODINDUSTRY}, #{PRODCATEGORY}, #{PRODSCHEDULE}, #{PRODINTRODUCE}, #{OS},
-         #{MOBILE}, #{TELECOM}, #{UNICOM}, #{OTHER}, #{ACCESSWAY}, #{NETWAY}, #{MODUSELECT}, #{ACCPROTOCOL});
+         #{MOBILE}, #{TELECOM}, #{UNICOM}, #{OTHER}, #{ACCESSWAY}, #{NETWAY}, #{MODUSELECT}, #{ACCPROTOCOL});-->
     </insert>
+    <!-- 更新产品信息 -->
+    <update id="update" parameterType="com.djweb.entity.ProductEntity">
+        <!--UPDATE djc_user SET PASSWORD = #{PASSWORD} WHERE USERNAME = #{USERNAME};-->
+    </update>
+    <!-- 根据产品名称获取产品信息-->
+    <select id="selectByPDName" resultType="com.djweb.entity.ProductEntity">
+        SELECT * FROM TBL_PRODUCT WHERE PDNAME = #{pdname};
+    </select>
+    <!-- 根据产品编码获取产品详细信息 -->
+    <select id="selectByPID" resultType="com.djweb.entity.ProductEntity">
+        SELECT * FROM TBL_PRODUCT WHERE PID = #{pid};
+    </select>
+    <!-- 根据用户编码获取产品信息 -->
+    <select id="selectByUID" resultType="com.djweb.entity.ProductEntity">
+        SELECT * FROM TBL_PRODUCT WHERE UID = #{uid};
+    </select>
     <!-- 删除产品 -->
     <delete id="deleteByPID">
-        DELETE FROM TBL_PRODUCT WHERE PID = #{PID};
+        DELETE FROM TBL_PRODUCT WHERE PID = #{pid};
     </delete>
-    <!-- 查询产品信息 -->
-    <select id="selectByUID" resultType="com.djweb.entity.ProductEntity">
-        SELECT * FROM TBL_PRODUCT WHERE UID = #{UID};
+    <!-- 根据产品编码获取设备个数 -->
+    <select id="selectByUID" resultType="java.lang.Integer">
+        SELECT COUNT(PID) FROM TBL_DEVICE WHERE PID = #{pid};
     </select>
-    <!-- 查询产品详细信息 -->
-    <select id="selectByPID" resultType="com.djweb.entity.ProductEntity">
-        SELECT * FROM TBL_PRODUCT WHERE PID = #{PID};
+    <!-- 根据产品编码获取触发器个数 -->
+    <select id="selectByUID" resultType="java.lang.Integer">
+        SELECT COUNT(PID) FROM TBL_TRIGGER WHERE PID = #{pid};
     </select>
 </mapper>
