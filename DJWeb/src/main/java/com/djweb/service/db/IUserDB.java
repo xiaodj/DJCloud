@@ -4,7 +4,7 @@ import com.djweb.entity.UserEntity;
 
 public interface IUserDB {
     //用户是否存在
-    public boolean IsExistOfUserName(String username);
+    public boolean IsExistOfUser(String username);
     //获取用户信息
     public UserEntity GetUserByUid(Integer uid);
     //获取用户信息

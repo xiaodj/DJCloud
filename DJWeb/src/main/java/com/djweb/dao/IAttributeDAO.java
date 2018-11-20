@@ -8,7 +8,7 @@ import java.util.List;
 
 @Repository
 public interface IAttributeDAO {
-    //增
+    //添加属性
     public boolean insert(AttributeEntity attrEntity);
     //根据属性ID删除属性
     public boolean deleteByAID(Integer aid);

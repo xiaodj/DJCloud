@@ -13,7 +13,7 @@ public class UserDBImpl implements IUserDB {
     private IUserDAO iUserDao;
 
     @Override
-    public boolean IsExistOfUserName(String username) {
+    public boolean IsExistOfUser(String username) {
         UserEntity userEntity = iUserDao.selectByUserName(username);
         if (userEntity == null)
             return false;

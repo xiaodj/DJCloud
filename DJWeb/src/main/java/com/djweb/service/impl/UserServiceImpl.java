@@ -41,7 +41,7 @@ public class UserServiceImpl implements IUserService{
         }
 
         //检查昵称是否已经存在
-        if(iUserDB.IsExistOfUserName(username)){
+        if(iUserDB.IsExistOfUser(username)){
             baseDto.setCode(1);
             baseDto.setMessage("用户名已存在");
             return baseDto;
