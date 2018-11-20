@@ -17,41 +17,45 @@ public class ProductImpl implements IProductDB {
 
     @Override
     public boolean IsExistOfProduct(String pdname) {
-        return false;
+        ProductEntity productEntity = iProductDao.selectByPDName(pdname);
+        if (productEntity == null)
+            return false;
+        else
+            return true;
     }
 
     @Override
     public boolean AddProduct(ProductEntity product) {
-        return false;
+        return iProductDao.insert(product);
     }
 
     @Override
     public boolean UpdateProductByPID(ProductEntity product) {
-        return false;
+        return iProductDao.update(product);
     }
 
     @Override
     public ProductEntity GetProductByPID(Integer pid) {
-        return null;
+        return iProductDao.selectByPID(pid);
     }
 
     @Override
     public List<ProductEntity> GetProductsByUID(Integer uid) {
-        return null;
+        return iProductDao.selectByUID(uid);
     }
 
     @Override
     public boolean DeleteProductByPID(Integer pid) {
-        return false;
+        return iProductDao.deleteByPID(pid);
     }
 
     @Override
     public Integer GetDeviceNumByPID(Integer pid) {
-        return null;
+        return iProductDao.GetDevNumByPID(pid);
     }
 
     @Override
     public Integer GetTriggerNumByPID(Integer pid) {
-        return null;
+        return iProductDao.GetTrigNumByPID(pid);
     }
 }

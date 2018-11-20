@@ -19,8 +19,9 @@ public class DeviceAction {
      * @author dengjiang
      */
     @RequestMapping(value = "/app/product/{pid}/device", method = RequestMethod.POST)
-    public @ResponseBody BaseDto AddDevice(@RequestBody Map<String, String> param){
-        return null;
+    public @ResponseBody BaseDto AddDevice(@PathVariable("pid") String pid, @RequestBody Map<String, String> param){
+        param.put("PID", pid);
+        return iDevice.AddDevice(param);
     }
 
     /**
@@ -29,8 +30,9 @@ public class DeviceAction {
      */
     @RequestMapping(value = "/app/product/device/{did}", method = RequestMethod.PUT)
     public @ResponseBody
-    BaseDto UpdateDevice(@RequestBody Map<String, String> param){
-        return null;
+    BaseDto UpdateDevice(@PathVariable("did") String did, @RequestBody Map<String, String> param){
+        param.put("DID", did);
+        return iDevice.UpdateDevice(param);
     }
 
     /**
@@ -39,8 +41,8 @@ public class DeviceAction {
      */
     @RequestMapping(value = "/app/product/device/{did}", method = RequestMethod.GET)
     public @ResponseBody
-    DeviceDto GetDevice(){
-        return null;
+    DeviceDto GetDevice(@PathVariable("did") Integer did){
+        return iDevice.GetDevice(did);
     }
 
     /**
@@ -49,8 +51,8 @@ public class DeviceAction {
      */
     @RequestMapping(value = "/app/product/{pid}/devices", method = RequestMethod.GET)
     public @ResponseBody
-    DevicesDto GetDevices(){
-        return null;
+    DevicesDto GetDevices(@PathVariable("pid") Integer pid){
+        return iDevice.GetDevices(pid);
     }
 
     /**
@@ -58,7 +60,7 @@ public class DeviceAction {
      * @author dengjiang
      */
     @RequestMapping(value = "/app/product/device/{did}", method = RequestMethod.DELETE)
-    public @ResponseBody BaseDto DeleteDevice(){
-        return null;
+    public @ResponseBody BaseDto DeleteDevice(@PathVariable("did") Integer did){
+        return iDevice.DeleteDevice(did);
     }
 }

@@ -25,8 +25,9 @@ public class ProductAction {
      * @author dengjiang
      */
     @RequestMapping(value = "/user/{uid}/product", method = RequestMethod.POST)
-    public @ResponseBody BaseDto AddProduct(@RequestBody Map<String, String> param){
-        return null;
+    public @ResponseBody BaseDto AddProduct(@PathVariable("uid") String uid, @RequestBody Map<String, String> param){
+        param.put("UID", uid);
+        return iProduct.AddProduct(param);
     }
 
     /**
@@ -34,8 +35,9 @@ public class ProductAction {
      * @author dengjiang
      */
     @RequestMapping(value = "/user/product/{pid}", method = RequestMethod.PUT)
-    public @ResponseBody BaseDto UpdateProduct(@RequestBody Map<String, String> param){
-        return null;
+    public @ResponseBody BaseDto UpdateProduct(@PathVariable("pid") String pid, @RequestBody Map<String, String> param){
+        param.put("PID", pid);
+        return iProduct.UpdateProduct(param);
     }
 
     /**
@@ -43,8 +45,8 @@ public class ProductAction {
      * @author dengjiang
      */
     @RequestMapping(value = "/user/product/{pid}", method = RequestMethod.GET)
-    public @ResponseBody ProductDto GetProduct(){
-        return null;
+    public @ResponseBody ProductDto GetProduct(@PathVariable("pid") Integer pid){
+        return iProduct.GetProduct(pid);
     }
 
     /**
@@ -52,8 +54,8 @@ public class ProductAction {
      * @author dengjiang
      */
     @RequestMapping(value = "/user/{uid}/products", method = RequestMethod.GET)
-    public @ResponseBody ProductsDto GetProducts(){
-        return null;
+    public @ResponseBody ProductsDto GetProducts(@PathVariable("uid") Integer uid){
+        return iProduct.GetProducts(uid);
     }
 
     /**
@@ -61,7 +63,7 @@ public class ProductAction {
      * @author dengjiang
      */
     @RequestMapping(value = "/user/product/{pid}", method = RequestMethod.DELETE)
-    public @ResponseBody BaseDto DeleteProduct(){
-        return null;
+    public @ResponseBody BaseDto DeleteProduct(@PathVariable("pid") Integer pid){
+        return iProduct.DeleteProduct(pid);
     }
 }

@@ -17,31 +17,35 @@ public class DeviceImpl implements IDeviceDB {
 
     @Override
     public boolean IsExistOfDevice(String devname) {
-        return false;
+        DeviceEntity deviceEntity = iDeviceDao.selectByDevName(devname);
+        if (deviceEntity == null)
+            return false;
+        else
+            return true;
     }
 
     @Override
     public boolean AddDevice(DeviceEntity device) {
-        return false;
+        return iDeviceDao.insert(device);
     }
 
     @Override
     public boolean UpdateDeviceByDID(DeviceEntity device) {
-        return false;
+        return iDeviceDao.update(device);
     }
 
     @Override
     public DeviceEntity GetDeviceByDID(Integer did) {
-        return null;
+        return iDeviceDao.selectByDID(did);
     }
 
     @Override
     public List<DeviceEntity> GetDevicesByPID(Integer pid) {
-        return null;
+        return iDeviceDao.selectByPID(pid);
     }
 
     @Override
     public boolean DeleteDeviceByDID(Integer did) {
-        return false;
+        return iDeviceDao.deleteByDID(did);
     }
 }

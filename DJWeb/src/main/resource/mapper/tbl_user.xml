@@ -6,7 +6,6 @@
         INSERT INTO TBL_USER(USERNAME, PASSWORD, NICKNAME)
         VALUES(#{USERNAME}, #{PASSWORD}, #{NICKNAME});
     </insert>
-
     <!-- 根据用户ID查询用户信息 -->
     <select id="selectByUID" resultType="com.djweb.entity.UserEntity">
         SELECT * FROM TBL_USER WHERE UID = #{uid};
@@ -15,7 +14,6 @@
     <select id="selectByUserName" resultType="com.djweb.entity.UserEntity">
         SELECT * FROM TBL_USER WHERE USERNAME = #{username};
     </select>
-
     <!-- 根据用户ID删除用户 -->
     <delete id="deleteByUID">
         DELETE FROM TBL_USER WHERE UID = #{uid};

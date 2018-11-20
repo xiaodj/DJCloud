@@ -17,31 +17,35 @@ public class AttributeImpl implements IAttributeDB {
 
     @Override
     public boolean IsExistOfAttribute(String attrname) {
-        return false;
+        AttributeEntity attributeEntity = iAttributeDao.selectByAttrName(attrname);
+        if (attributeEntity == null)
+            return false;
+        else
+            return true;
     }
 
     @Override
     public boolean AddAttribute(AttributeEntity attribute) {
-        return false;
+        return iAttributeDao.insert(attribute);
     }
 
     @Override
     public boolean UpdateAttributeByAID(AttributeEntity attribute) {
-        return false;
+        return iAttributeDao.update(attribute);
     }
 
     @Override
     public AttributeEntity GetAttributeByAID(Integer aid) {
-        return null;
+        return iAttributeDao.selectByAID(aid);
     }
 
     @Override
     public List<AttributeEntity> GetAttributesByPID(Integer pid) {
-        return null;
+        return iAttributeDao.selectByPID(pid);
     }
 
     @Override
     public boolean DeleteAttributeByAID(Integer aid) {
-        return false;
+        return iAttributeDao.deleteByAID(aid);
     }
 }

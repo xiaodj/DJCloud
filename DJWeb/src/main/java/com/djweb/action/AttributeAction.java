@@ -20,8 +20,9 @@ public class AttributeAction {
      */
     @RequestMapping(value = "/app/product/{pid}/Attribute", method = RequestMethod.POST)
     public @ResponseBody
-    BaseDto AddAttribute(@RequestBody Map<String, String> param){
-        return null;
+    BaseDto AddAttribute(@PathVariable("pid") String pid, @RequestBody Map<String, String> param){
+        param.put("PID", pid);
+        return iAttribute.AddAttribute(param);
     }
 
     /**
@@ -29,8 +30,9 @@ public class AttributeAction {
      * @author dengjiang
      */
     @RequestMapping(value = "/app/product/Attribute/{aid}", method = RequestMethod.PUT)
-    public @ResponseBody BaseDto UpdateAttribute(@RequestBody Map<String, String> param){
-        return null;
+    public @ResponseBody BaseDto UpdateAttribute(@PathVariable("aid") String aid, @RequestBody Map<String, String> param){
+        param.put("AID", aid);
+        return iAttribute.UpdateAttribute(param);
     }
 
     /**
@@ -39,8 +41,8 @@ public class AttributeAction {
      */
     @RequestMapping(value = "/app/product/Attribute/{aid}", method = RequestMethod.GET)
     public @ResponseBody
-    AttributeDto GetAttribute(){
-        return null;
+    AttributeDto GetAttribute(@PathVariable("aid") Integer aid){
+        return iAttribute.GetAttribute(aid);
     }
 
     /**
@@ -49,8 +51,8 @@ public class AttributeAction {
      */
     @RequestMapping(value = "/app/product/{pid}/Attributes", method = RequestMethod.GET)
     public @ResponseBody
-    AttributesDto GetAttributes(){
-        return null;
+    AttributesDto GetAttributes(@PathVariable("pid") Integer pid){
+        return iAttribute.GetAttributes(pid);
     }
 
     /**
@@ -58,7 +60,7 @@ public class AttributeAction {
      * @author dengjiang
      */
     @RequestMapping(value = "/app/product/Attribute/{aid}", method = RequestMethod.DELETE)
-    public @ResponseBody BaseDto DeleteAttribute(){
-        return null;
+    public @ResponseBody BaseDto DeleteAttribute(@PathVariable("aid") Integer aid){
+        return iAttribute.DeleteProduct(aid);
     }
 }

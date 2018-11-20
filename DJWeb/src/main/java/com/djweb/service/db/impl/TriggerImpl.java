@@ -17,31 +17,35 @@ public class TriggerImpl implements ITriggerDB {
 
     @Override
     public boolean IsExistOfTrigger(String trigname) {
-        return false;
+        TriggerEntity triggerEntity = iTriggerDao.selectByTrigName(trigname);
+        if (triggerEntity == null)
+            return false;
+        else
+            return true;
     }
 
     @Override
     public boolean AddTrigger(TriggerEntity trigger) {
-        return false;
+        return iTriggerDao.insert(trigger);
     }
 
     @Override
     public boolean UpdateTriggerByTID(TriggerEntity trigger) {
-        return false;
+        return iTriggerDao.update(trigger);
     }
 
     @Override
     public TriggerEntity GetTriggerByTID(Integer tid) {
-        return null;
+        return iTriggerDao.selectByTID(tid);
     }
 
     @Override
     public List<TriggerEntity> GetTriggersByPID(Integer pid) {
-        return null;
+        return iTriggerDao.selectByPID(pid);
     }
 
     @Override
     public boolean DeleteTriggerByTID(Integer tid) {
-        return false;
+        return iTriggerDao.deleteByTID(tid);
     }
 }

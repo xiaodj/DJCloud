@@ -19,8 +19,9 @@ public class TriggerAction {
      * @author dengjiang
      */
     @RequestMapping(value = "/app/product/{pid}/trigger", method = RequestMethod.POST)
-    public @ResponseBody BaseDto AddTrigger(@RequestBody Map<String, String> param){
-        return null;
+    public @ResponseBody BaseDto AddTrigger(@PathVariable("pid") String pid, @RequestBody Map<String, String> param){
+        param.put("PID", pid);
+        return iTrigger.AddTrigger(param);
     }
 
     /**
@@ -29,8 +30,9 @@ public class TriggerAction {
      */
     @RequestMapping(value = "/app/product/trigger/{tid}", method = RequestMethod.PUT)
     public @ResponseBody
-    BaseDto UpdateTrigger(@RequestBody Map<String, String> param){
-        return null;
+    BaseDto UpdateTrigger(@PathVariable("tid") String tid, @RequestBody Map<String, String> param){
+        param.put("TID", tid);
+        return iTrigger.UpdateTrigger(param);
     }
 
     /**
@@ -39,8 +41,8 @@ public class TriggerAction {
      */
     @RequestMapping(value = "/app/product/trigger/{tid}", method = RequestMethod.GET)
     public @ResponseBody
-    TriggerDto GetTrigger(){
-        return null;
+    TriggerDto GetTrigger(@PathVariable("tid") Integer tid){
+        return iTrigger.GetTrigger(tid);
     }
 
     /**
@@ -49,8 +51,8 @@ public class TriggerAction {
      */
     @RequestMapping(value = "/app/product/{pid}/triggers", method = RequestMethod.GET)
     public @ResponseBody
-    TriggersDto GetTriggers(){
-        return null;
+    TriggersDto GetTriggers(@PathVariable("pid") Integer pid){
+        return iTrigger.GetTriggers(pid);
     }
 
     /**
@@ -58,7 +60,7 @@ public class TriggerAction {
      * @author dengjiang
      */
     @RequestMapping(value = "/app/product/trigger/{tid}", method = RequestMethod.DELETE)
-    public @ResponseBody BaseDto DeleteTrigger(){
-        return null;
+    public @ResponseBody BaseDto DeleteTrigger(@PathVariable("tid") Integer tid){
+        return iTrigger.DeleteTrigger(tid);
     }
 }
