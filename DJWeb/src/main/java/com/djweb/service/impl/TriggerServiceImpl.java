@@ -37,6 +37,7 @@ public class TriggerServiceImpl implements ITriggerService {
         String trigValue = var.get("TrigValue");
         String msgAccess = var.get("MsgAccess");
         String msgAddress = var.get("MsgAddress");
+        String pid = var.get("PID");
 
         //判断触发器名是否存在
         if (iTriggerDB.IsExistOfTrigger(trigName)){
@@ -53,6 +54,7 @@ public class TriggerServiceImpl implements ITriggerService {
         triggerEntity.setTRIGVALUE(trigValue);
         triggerEntity.setMSGACCESS(msgAccess);
         triggerEntity.setMSGADDRESS(msgAddress);
+        triggerEntity.setPID(Integer.parseInt(pid));
 
         if (!iTriggerDB.AddTrigger(triggerEntity)){
             baseDto.setCode(1);

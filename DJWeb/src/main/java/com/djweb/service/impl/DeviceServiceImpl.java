@@ -34,6 +34,7 @@ public class DeviceServiceImpl implements IDeviceService{
         String devName = var.get("DevName");
         String devUniNum = var.get("DevUniNum");
         String dataSecrecy = var.get("DataSecrecy");
+        String pid = var.get("PID");
 
 
         //判断设备名是否已经存在
@@ -47,6 +48,7 @@ public class DeviceServiceImpl implements IDeviceService{
         deviceEntity.setDEVNAME(devName);
         deviceEntity.setDEVUNINUM(devUniNum);
         deviceEntity.setDATASECRECY(dataSecrecy);
+        deviceEntity.setPID(Integer.parseInt(pid));
 
         if (!iDeviceDB.AddDevice(deviceEntity)){
             baseDto.setCode(1);

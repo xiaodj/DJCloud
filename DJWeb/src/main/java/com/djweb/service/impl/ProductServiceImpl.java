@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 /**
  * Created by xiaodj on 2018/8/29.
@@ -46,6 +47,9 @@ public class ProductServiceImpl implements IProductService {
         String pdModule = var.get("PDModule");
         String pdProtocol = var.get("PDProtocol");
         String pdDateTime = var.get("PDDateTime");
+        String pdkey = UUID.randomUUID().toString();
+        String uid = var.get("UID");
+
 
         //判断产品是否存在
         if (iProductDB.IsExistOfProduct(pdName)){
@@ -67,6 +71,8 @@ public class ProductServiceImpl implements IProductService {
         productEntity.setPDMODULE(pdModule);
         productEntity.setPDPROTOCOL(pdProtocol);
         productEntity.setPDDATETIME(pdDateTime);
+        productEntity.setPDKEY(pdkey);
+        productEntity.setUID(Integer.parseInt(uid));
 
         if (!iProductDB.AddProduct(productEntity)){
             baseDto.setCode(1);
@@ -82,6 +88,7 @@ public class ProductServiceImpl implements IProductService {
     @Override
     public BaseDto UpdateProduct(Map<String, String> var) {
 
+        String pid = var.get("PID");
         String pdName = var.get("PDName");
         String pdIndustry = var.get("PDIndustry");
         String pdCategory = var.get("PDCategory");
@@ -95,6 +102,7 @@ public class ProductServiceImpl implements IProductService {
         String pdProtocol = var.get("PDProtocol");
 
         ProductEntity productEntity = new ProductEntity();
+        productEntity.setPID(Integer.parseInt(pid));
         productEntity.setPDNAME(pdName);
         productEntity.setPDINDUSTRY(pdIndustry);
         productEntity.setPDCATEGORY(pdCategory);
@@ -159,7 +167,7 @@ public class ProductServiceImpl implements IProductService {
             productInfo.setTriggNum(iProductDB.GetTriggerNumByPID(productEntity.getPID()));
             productInfo.setPDKey(productEntity.getPDKEY());
             //后面进行修改为0,1
-            if (productEntity.getPDACCESSWAY().equals("公有协议")){
+            if (productEntity.getPDACCESSWAY().equals("公开协议")){
                 pubList.add(productInfo);
             }else {
                 praList.add(productInfo);

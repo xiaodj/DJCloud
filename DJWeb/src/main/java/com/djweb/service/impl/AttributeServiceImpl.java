@@ -34,6 +34,7 @@ public class AttributeServiceImpl implements IAttributeService {
         String attrName = var.get("AttrName");
         String unitName = var.get("UnitName");
         String unitSymbol = var.get("UnitSymbol");
+        String pid = var.get("PID");
 
         //判断属性是否存在
         if (iAttributeDB.IsExistOfAttribute(attrName)){
@@ -46,6 +47,7 @@ public class AttributeServiceImpl implements IAttributeService {
         attributeEntity.setATTRNAME(attrName);
         attributeEntity.setUNITNAME(unitName);
         attributeEntity.setUNITSYMBOL(unitSymbol);
+        attributeEntity.setPID(Integer.parseInt(pid));
 
         if (!iAttributeDB.AddAttribute(attributeEntity)){
             baseDto.setCode(1);
