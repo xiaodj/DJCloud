@@ -3,12 +3,16 @@
 <mapper namespace="com.djweb.dao.ITriggerDAO">
     <!-- 添加触发器 -->
     <insert id="insert" parameterType="com.djweb.entity.TriggerEntity">
-        <!--INSERT INTO TBL_TRIGGER(TRIGNAME, CONTROLAREA, ATTRNAME, TRIGCONDITION, ACCEPTWAY, PID)
-        VALUES(#{TRIGNAME}, #{CONTROLAREA}, #{ATTRNAME},#{TRIGCONDITION}, #{ACCEPTWAY}, #{PID});-->
+        INSERT INTO TBL_TRIGGER(TRIGNAME, CONTROLRANGE, ATTRNAME, TRIGSYMBOL,
+        TRIGVALUE, MSGACCESS, MSGADDRESS, PID)
+        VALUES(#{TRIGNAME}, #{CONTROLRANGE}, #{ATTRNAME},#{TRIGSYMBOL},
+        #{TRIGVALUE}, #{MSGACCESS}, #{MSGADDRESS}, #{PID});
     </insert>
     <!-- 更新触发器信息 -->
     <update id="update" parameterType="com.djweb.entity.UserEntity">
-        <!--UPDATE TBL_TRIGGER SET PASSWORD = #{PASSWORD} WHERE USERNAME = #{USERNAME};-->
+        UPDATE TBL_TRIGGER SET TRIGNAME = #{TRIGNAME}, CONTROLRANGE = #{CONTROLRANGE},
+        ATTRNAME = #{ATTRNAME}, TRIGSYMBOL = #{TRIGSYMBOL}, TRIGVALUE = #{TRIGVALUE},
+        MSGACCESS = #{MSGACCESS}, MSGADDRESS = #{MSGADDRESS} WHERE TID = #{TID};
     </update>
     <!-- 根据触发器名称获取触发器信息 -->
     <select id="selectByTrigName" resultType="com.djweb.entity.TriggerEntity">

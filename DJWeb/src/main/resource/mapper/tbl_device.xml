@@ -3,12 +3,14 @@
 <mapper namespace="com.djweb.dao.IDeviceDAO">
     <!-- 添加设备 -->
     <insert id="insert" parameterType="com.djweb.entity.DeviceEntity">
-        <!--INSERT INTO TBL_DEVICE(DEVNAME, DEVIDENTIFY, DATASECURITY, PID)
-        VALUES(#{DEVNAME}, #{DEVIDENTIFY}, #{DATASECURITY},#{PID});-->
+        INSERT INTO TBL_DEVICE(DEVNAME, DEVUNINUM, DATASECRECY, PID)
+        VALUES(#{DEVNAME}, #{DEVUNINUM}, #{DATASECRECY},#{PID});
     </insert>
     <!-- 更新设备信息 -->
     <update id="update" parameterType="com.djweb.entity.UserEntity">
-        <!--UPDATE djc_user SET PASSWORD = #{PASSWORD} WHERE USERNAME = #{USERNAME};-->
+        UPDATE TBL_DEVICE SET DEVNAME = #{DEVNAME}, DEVUNINUM = #{DEVUNINUM}, DATASECRECY = #{DATASECRECY},
+         DEVICONPATH = #{DEVICONPATH}, DEVDESC = #{DEVDESC}, DEVLABEL = #{DEVLABEL}, DEVADDRESS = #{DEVADDRESS}
+          WHERE DID = #{DID};
     </update>
     <!-- 根据设备名称获取设备信息 -->
     <select id="selectByDevName" resultType="com.djweb.entity.DeviceEntity">

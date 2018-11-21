@@ -3,12 +3,13 @@
 <mapper namespace="com.djweb.dao.IAttributeDAO">
     <!-- 添加属性点 -->
     <insert id="insert" parameterType="com.djweb.entity.UserEntity">
-        <!--INSERT INTO TBL_ATTRIBUTE(ATTRENNAME, ATTRCNNAME, UNITNAME, UNITSYMBOL, PID)
-        VALUES(#{ATTRENNAME}, #{ATTRCNNAME}, #{UNITNAME},#{UNITSYMBOL}, #{PID});-->
+        INSERT INTO TBL_ATTRIBUTE(ATTRNAME, UNITNAME, UNITSYMBOL, PID)
+        VALUES(#{ATTRNAME}, #{UNITNAME}, #{UNITSYMBOL}, #{PID});
     </insert>
     <!-- 更新属性信息 -->
     <update id="update" parameterType="com.djweb.entity.UserEntity">
-        <!--UPDATE djc_user SET PASSWORD = #{PASSWORD} WHERE USERNAME = #{USERNAME};-->
+        UPDATE TBL_ATTRIBUTE SET ATTRNAME = #{ATTRNAME}, UNITNAME = #{UNITNAME},
+         UNITSYMBOL = #{UNITSYMBOL} WHERE AID = #{AID};
     </update>
     <!-- 根据属性名称获取属性信息 -->
     <select id="selectByAttrName" resultType="com.djweb.entity.AttributeEntity">

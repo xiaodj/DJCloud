@@ -3,14 +3,17 @@
 <mapper namespace="com.djweb.dao.IProductDAO">
     <!-- 增加产品 -->
     <insert id="insert" parameterType="com.djweb.entity.ProductEntity">
-        <!--INSERT INTO TBL_PRODUCT(PRODNAME, PRODINDUSTRY, PRODCATEGORY, PRODSCHEDULE, PRODINTRODUCE,
-         OS, MOBILE, TELECOM, UNICOM, OTHER, ACCESSWAY, NETWAY, MODUSELECT, ACCPROTOCOL)
-        VALUES(#{PRODNAME}, #{PRODINDUSTRY}, #{PRODCATEGORY}, #{PRODSCHEDULE}, #{PRODINTRODUCE}, #{OS},
-         #{MOBILE}, #{TELECOM}, #{UNICOM}, #{OTHER}, #{ACCESSWAY}, #{NETWAY}, #{MODUSELECT}, #{ACCPROTOCOL});-->
+        INSERT INTO TBL_PRODUCT(PDNAME, PDINDUSTRY, PDCATEGORY, PDPROGRESS, PDSUMMARY,
+         PDOS, PDNETWORK, PDACCESSWAY, PDNETWAY, PDMODULE, PDPROTOCOL, PDKEY, PDDATETIME, UID)
+        VALUES(#{PDNAME}, #{PDINDUSTRY}, #{PDCATEGORY}, #{PDPROGRESS}, #{PDSUMMARY}, #{PDOS},
+         #{PDNETWORK}, #{PDACCESSWAY}, #{PDNETWAY}, #{PDMODULE}, #{PDPROTOCOL}, #{PDKEY}, #{PDDATETIME}, #{UID});
     </insert>
     <!-- 更新产品信息 -->
     <update id="update" parameterType="com.djweb.entity.ProductEntity">
-        <!--UPDATE djc_user SET PASSWORD = #{PASSWORD} WHERE USERNAME = #{USERNAME};-->
+        UPDATE TBL_PRODUCT SET PDNAME = #{PDNAME}, PDINDUSTRY = #{PDINDUSTRY}, PDCATEGORY = #{PDCATEGORY},
+         PDPROGRESS = #{PDPROGRESS}, PDSUMMARY = #{PDSUMMARY}, PDOS = #{PDOS}, PDNETWORK = #{PDNETWORK},
+         PDACCESSWAY = #{PDACCESSWAY}, PDNETWAY = #{PDNETWAY}, PDMODULE = #{PDMODULE}, PDPROTOCOL = #{PDPROTOCOL}
+          WHERE PID = #{PID};
     </update>
     <!-- 根据产品名称获取产品信息-->
     <select id="selectByPDName" resultType="com.djweb.entity.ProductEntity">
