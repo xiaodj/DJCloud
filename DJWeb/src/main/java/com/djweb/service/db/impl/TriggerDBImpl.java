@@ -4,13 +4,15 @@ import com.djweb.dao.ITriggerDAO;
 import com.djweb.entity.TriggerEntity;
 import com.djweb.service.db.ITriggerDB;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 /**
  * Created by xiaodj on 2018/11/20.
  */
-public class TriggerImpl implements ITriggerDB {
+@Component
+public class TriggerDBImpl implements ITriggerDB {
 
     @Autowired
     private ITriggerDAO iTriggerDao;

@@ -4,13 +4,15 @@ import com.djweb.dao.IAttributeDAO;
 import com.djweb.entity.AttributeEntity;
 import com.djweb.service.db.IAttributeDB;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 /**
  * Created by xiaodj on 2018/11/20.
  */
-public class AttributeImpl implements IAttributeDB {
+@Component
+public class AttributeDBImpl implements IAttributeDB {
 
     @Autowired
     private IAttributeDAO iAttributeDao;

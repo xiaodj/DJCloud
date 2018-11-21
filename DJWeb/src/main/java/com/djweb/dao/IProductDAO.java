@@ -1,6 +1,5 @@
 package com.djweb.dao;
 
-import com.djweb.entity.DeviceEntity;
 import com.djweb.entity.ProductEntity;
 import org.springframework.stereotype.Repository;
 

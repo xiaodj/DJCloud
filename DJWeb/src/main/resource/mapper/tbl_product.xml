@@ -32,11 +32,11 @@
         DELETE FROM TBL_PRODUCT WHERE PID = #{pid};
     </delete>
     <!-- 根据产品编码获取设备个数 -->
-    <select id="selectByUID" resultType="java.lang.Integer">
+    <select id="GetDevNumByPID" resultType="java.lang.Integer">
         SELECT COUNT(PID) FROM TBL_DEVICE WHERE PID = #{pid};
     </select>
     <!-- 根据产品编码获取触发器个数 -->
-    <select id="selectByUID" resultType="java.lang.Integer">
+    <select id="GetTrigNumByPID" resultType="java.lang.Integer">
         SELECT COUNT(PID) FROM TBL_TRIGGER WHERE PID = #{pid};
     </select>
 </mapper>

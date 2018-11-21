@@ -4,13 +4,15 @@ import com.djweb.dao.IProductDAO;
 import com.djweb.entity.ProductEntity;
 import com.djweb.service.db.IProductDB;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 /**
  * Created by xiaodj on 2018/11/20.
  */
-public class ProductImpl implements IProductDB {
+@Component
+public class ProductDBImpl implements IProductDB {
 
     @Autowired
     private IProductDAO iProductDao;

@@ -4,13 +4,15 @@ import com.djweb.dao.IDeviceDAO;
 import com.djweb.entity.DeviceEntity;
 import com.djweb.service.db.IDeviceDB;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 /**
  * Created by xiaodj on 2018/11/20.
  */
-public class DeviceImpl implements IDeviceDB {
+@Component
+public class DeviceDBImpl implements IDeviceDB {
 
     @Autowired
     private IDeviceDAO iDeviceDao;
