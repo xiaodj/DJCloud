@@ -5,7 +5,7 @@
     <title>登录</title>
     <link rel="stylesheet" href="../css/djweb.min.css">
     <link rel="stylesheet" href="../lib/layui/css/layui.css">
-    <script src="../js/net.js"></script>
+    <script src="../js/common.js"></script>
     <script src="../lib/layui/layui.js"></script>
     <script>
         layui.config({
@@ -28,7 +28,7 @@
             <div class="layui-inline">
                 <label class="layui-form-label">用户名</label>
                 <div class="layui-input-inline">
-                    <input name="username" class="layui-input" type="text" autocomplete="off" required lay-verify="required">
+                    <input name="UserName" class="layui-input" type="text" autocomplete="off" required lay-verify="required">
                 </div>
             </div>
         </div>
@@ -36,7 +36,7 @@
             <div class="layui-inline">
                 <label class="layui-form-label">密码</label>
                 <div class="layui-input-inline">
-                    <input name="password" class="layui-input" type="password" autocomplete="off" required lay-verify="required">
+                    <input name="PassWord" class="layui-input" type="password" autocomplete="off" required lay-verify="required">
                 </div>
             </div>
         </div>
@@ -45,7 +45,7 @@
             <div class="layui-inline">
                 <label class="layui-form-label"></label>
                 <div class="layui-input-inline">
-                    <button class="layui-btn layui-btn-fluid" lay-filter="loginbtn" lay-submit>登录</button>
+                    <button class="layui-btn layui-btn-fluid" lay-filter="Login" lay-submit>登录</button>
                 </div>
             </div>
         </div>
