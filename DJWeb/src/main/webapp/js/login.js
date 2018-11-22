@@ -16,9 +16,10 @@ layui.define(['layer','form'],function (exports) {
             success:function (msg) {
                 if (msg.code == 0) {
                     uid = msg.uid;
-                    location.href = '../index.html';
+                    window.location.href = Host;
+                    return false;
                 }else if (msg.code == 1){
-                    layer.msg(msg.Message);
+                    layer.msg(msg.Message.toString());
                     return false;
                 }
             },
