@@ -7,22 +7,27 @@ layui.define(['layer','form'],function (exports) {
     var $ = layui.$;
 
     form.on('submit(Login)', function (data) {
-        login($, data, fn);
+        $.ajax({
+            url:Host + "/user/login",
+            type:"post",
+            contentType:"application/json",
+            datatype:"json",
+            data:JSON.stringify(data.field),
+            success:function (msg) {
+                if (msg.code == 0) {
+                    uid = msg.uid;
+                    location.href = '../index.html';
+                }else if (msg.code == 1){
+                    layer.msg(msg.Message);
+                    return false;
+                }
+            },
+            error:function (msg) {
+                layer.msg("net error");
+                return false;
+            }
+        });
     });
-
-    function fn(msg) {
-
-        if (msg == "err"){
-            layer.msg("net error");
-            return false;
-        }
-
-        if (msg.code == 0) {
-            location.href = '../index.html';
-        }else if (msg.code == 1){
-            layer.msg("");
-        }
-    }
 
     exports('login', {});
 });
