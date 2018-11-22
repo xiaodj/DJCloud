@@ -6,7 +6,7 @@ layui.define(['layer','form'],function (exports) {
     var form = layui.form;
     var $ = layui.$;
 
-    form.on('submit(loginbtn)', function (data) {
+    form.on('submit(Login)', function (data) {
         login($, data, fn);
     });
 
