@@ -42,6 +42,7 @@ public class UserServiceImpl implements IUserService{
         if (nickname.isEmpty() || username.isEmpty() || password.isEmpty()){
             baseDto.setCode(1);
             baseDto.setMessage("昵称、用户名、密码不能为空");
+            System.out.print(String.valueOf(baseDto.getCode()));
             return baseDto;
         }
 
@@ -49,6 +50,7 @@ public class UserServiceImpl implements IUserService{
         if(iUserDB.IsExistOfUser(username)){
             baseDto.setCode(1);
             baseDto.setMessage("用户名已存在");
+            System.out.print(String.valueOf(baseDto.getCode()));
             return baseDto;
         }
 
@@ -78,6 +80,7 @@ public class UserServiceImpl implements IUserService{
         if (username.isEmpty() || password.isEmpty()){
             loginDto.setCode(1);
             loginDto.setMessage("用户名或密码不能为空");
+            System.out.print(String.valueOf(baseDto.getCode()));
             return loginDto;
         }
 
@@ -86,17 +89,21 @@ public class UserServiceImpl implements IUserService{
         if (userEntity == null){
             loginDto.setCode(1);
             loginDto.setMessage("该用户不存在");
+            System.out.print(String.valueOf(baseDto.getCode()));
             return loginDto;
         }
 
         if (!userEntity.getPASSWORD().equals(password)){
             loginDto.setCode(1);
             loginDto.setMessage("用户名与密码不匹配");
+            System.out.print(String.valueOf(baseDto.getCode()));
             return loginDto;
         }else {
             loginDto.setCode(0);
             loginDto.setMessage("登录成功");
             loginDto.setUID(userEntity.getUID());
+            loginDto.setNickName(userEntity.getNICKNAME());
+            System.out.print(String.valueOf(baseDto.getCode()));
             return loginDto;
         }
     }

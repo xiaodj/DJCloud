@@ -1,31 +1,42 @@
 /**
  * Created by xiaodj on 2018/7/16.
  */
+var Host = "http://localhost:8080";
+
 layui.define(['layer','form'],function (exports) {
     var layer = layui.layer;
     var form = layui.form;
     var $ = layui.$;
 
-    form.on('submit(Login)', function (data) {
+    $(document).on('click', '#Login', function () {
+        var UserName = document.getElementById('UserName').value;
+        var PassWord = document.getElementById('PassWord').value;
+        var reqdata = {
+            "UserName":UserName,
+            "PassWord":PassWord
+        };
+        console.log(reqdata);
         $.ajax({
+            //async: false,
             url:Host + "/user/login",
             type:"post",
             contentType:"application/json",
-            datatype:"json",
-            data:JSON.stringify(data.field),
+            dataType:"json",
+            data:JSON.stringify(reqdata),
             success:function (msg) {
                 if (msg.code == 0) {
-                    uid = msg.uid;
-                    window.location.href = Host;
-                    return false;
+                    sessionStorage.setItem("UID", msg.uid);
+                    sessionStorage.setItem("NickName", msg.nickname);
+                    window.location.href = "../index.html";
                 }else if (msg.code == 1){
                     layer.msg(msg.Message.toString());
-                    return false;
                 }
             },
             error:function (msg) {
+                alert(XMLHttpRequest.status);
+                alert(XMLHttpRequest.readyState);
+                alert(textStatus);
                 layer.msg("net error");
-                return false;
             }
         });
     });
