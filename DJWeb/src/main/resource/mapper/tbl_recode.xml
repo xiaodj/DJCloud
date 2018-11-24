@@ -24,10 +24,10 @@
     </update>
     <!-- 根据日期时间段查询记录 -->
     <select id="select" resultType="java.util.Map">
-        SELECT * FROM #{tblName} WHERE RECDATETIME >= #{startDateTime};
+        SELECT * FROM #{tblName} WHERE RECDATETIME BETWEEN #{startDateTime} AND #{endDateTime};
     </select>
     <!-- 根据设备编码查询记录 -->
     <select id="selectByDID" resultType="java.util.Map">
-        SELECT * FROM #{tblName} WHERE DID = #{did} AND RECDATETIME >= #{startDateTime};
+        SELECT * FROM #{tblName} WHERE DID = #{did} AND RECDATETIME BETWEEN #{startDateTime} AND #{endDateTime};
     </select>
 </mapper>
