@@ -1,7 +1,6 @@
 /**
  * Created by xiaodj on 2018/7/16.
  */
-var Host = "http://localhost:8080";
 
 layui.define(['layer','form'],function (exports) {
     var layer = layui.layer;
@@ -26,8 +25,8 @@ layui.define(['layer','form'],function (exports) {
             success:function (msg) {
                 if (msg.code == 0) {
                     sessionStorage.setItem("UID", msg.uid);
-                    sessionStorage.setItem("NickName", msg.nickname);
-                    window.location.href = "../index.html";
+                    sessionStorage.setItem("NickName", msg.nickName);
+                    window.location.href = Host;
                 }else if (msg.code == 1){
                     layer.msg(msg.Message.toString());
                 }

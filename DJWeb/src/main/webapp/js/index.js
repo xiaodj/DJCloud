@@ -7,11 +7,9 @@ layui.define(['layer', 'element'],function (exports) {
 
     //获取用户信息
     if (sessionStorage.getItem("UID") != null){
-        var nouser = document.getElementById("no_user");
-        nouser.style.display = "none";
-        var user = document.getElementById("user");
-        user.style.display = "inline";
-        $("#NickName").innerHTML = sessionStorage.getItem("NickName");
+        document.getElementById("no_user").style.display = "none";
+        document.getElementById("user").style.display = "inline";
+        document.getElementById("NickName").innerHTML = sessionStorage.getItem("NickName");
     }
 
     exports('index', {});
