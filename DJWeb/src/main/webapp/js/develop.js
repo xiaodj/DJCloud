@@ -8,7 +8,24 @@ layui.define(['layer','element'],function (exports) {
     //var element = layui.element;
 
     //获取用户所拥有的产品信息
-    getProductsInfo($, fn);
+    if (sessionStorage.getItem("UID") != null){
+        document.getElementById("NickName").innerHTML = sessionStorage.getItem("NickName");
+    }else {
+        window.location.href = "../views/login.html"
+    }
+
+    //获取产品信息
+    $.ajax({
+        url:Host + "/user/" + sessionStorage.getItem("UID") + "/products",
+        type:"get",
+        datatype:"json",
+        success:function (msg) {
+            fn(msg);
+        },
+        error:function (msg) {
+            fn("err");
+        }
+    });
 
     function fn(prodsInfo) {
         if (prodsInfo == "err"){
