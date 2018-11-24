@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.djweb.dao.IRecordDAO">
+    <!-- 创建表 -->
+    <update id="creatTableByName">
+        CREATE TABLE #{tblName} (
+        `RID` INT NOT NULL AUTO_INCREMENT COMMENT '记录编码',
+        `RECDATETIME` DATETIME NOT NULL COMMENT '记录时间',
+        `DID` INT NOT NULL COMMENT '设备编码',
+        PRIMARY KEY (`RID`)
+        COMMENT = '记录表';
+    </update>
+    <!-- 删除表 -->
+    <delete id="deleteTableByName">
+        DROP TABLE #{tblName};
+    </delete>
+    <!-- 向表中添加字段 -->
+    <update id="addField">
+        ALTER TABLE #{tblName} ADD COLUMN #{fieldName} VARCHAR(45) NULL;
+    </update>
+    <!-- 向表中删除字段 -->
+    <update id="deleteField">
+        ALTER TABLE #{tblName} DROP COLUMN #{fieldName};
+    </update>
+    <!-- 根据日期时间段查询记录 -->
+    <select id="select" resultType="java.util.Map">
+        SELECT * FROM #{tblName} WHERE RECDATETIME >= #{startDateTime};
+    </select>
+    <!-- 根据设备编码查询记录 -->
+    <select id="selectByDID" resultType="java.util.Map">
+        SELECT * FROM #{tblName} WHERE DID = #{did} AND RECDATETIME >= #{startDateTime};
+    </select>
+</mapper>
